@@ -1,0 +1,28 @@
+[
+    {
+      "title": "Dashboard",
+      "icon": "layout-dashboard",
+      "url": "/admin/dashboard"
+    },
+    {
+      "title": "Users",
+      "icon": "users",
+      "url": "/admin/users"
+    },
+    {
+      "title": "Products",
+      "icon": "box",
+      "url": "/admin/products"
+    },
+    {
+      "title": "Orders",
+      "icon": "shopping-cart",
+      "url": "/admin/orders"
+    },
+    {
+      "title": "Settings",
+      "icon": "settings",
+      "url": "/admin/settings"
+    }
+  ]
+  

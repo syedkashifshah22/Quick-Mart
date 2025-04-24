@@ -1,0 +1,23 @@
+[
+    {
+      "title": "Home",
+      "icon": "home",
+      "url": "/"
+    },
+    {
+      "title": "Product",
+      "icon": "store",
+      "url": "/product"
+    },
+    {
+      "title": "Gallery",
+      "icon": "shopping-cart",
+      "url": "/gallery"
+    },
+    {
+      "title": "Orders",
+      "icon": "package",
+      "url": "/orders"
+    }
+  ]
+  
