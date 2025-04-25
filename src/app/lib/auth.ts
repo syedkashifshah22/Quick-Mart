@@ -12,9 +12,10 @@ interface User {
 
 export function setAuth(user: User) {
   if (typeof window !== "undefined") {
-    const { password, ...userData } = user;
+    const { fullName, email, role, profileImage } = user;
 
-    localStorage.setItem("user", JSON.stringify(userData));
+      // Store the user data without password
+      localStorage.setItem("user", JSON.stringify({ fullName, email, role, profileImage }));
   }
 }
 
@@ -50,16 +51,7 @@ export function registerUser(
 
   const encryptedPassword = encryptPassword(password);
 
-  const newRole: UserRole =
-    email === "syedkashifshah@gmail.com" ? "admin" : "user";
-
-  users.push({
-    fullName,
-    email,
-    password: encryptedPassword,
-    role: newRole,
-    profileImage,
-  });
+  users.push({ fullName, email, password: encryptedPassword, role, profileImage });
   localStorage.setItem("users", JSON.stringify(users));
   return "Account created";
 }
@@ -70,9 +62,7 @@ export function loginUser(email: string, password: string): User | null {
   try {
     const users: User[] = JSON.parse(localStorage.getItem("users") || "[]");
 
-    const user = users.find(
-      (u) => u.email === email && decryptPassword(u.password) === password
-    );
+    const user = users.find((u) => u.email === email && decryptPassword(u.password) === password);
 
     if (user) {
       setAuth(user);

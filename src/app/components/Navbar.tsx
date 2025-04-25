@@ -26,9 +26,7 @@ export default function Navbar() {
           profileImage: currentUser.profileImage,
         });
 
-        // Check if the user is admin
         if (currentUser.email === "syedkashifshah@gmail.com") {
-          // Redirect to admin dashboard if email is admin
           router.push("/admin-dashboard");
         }
       } else {
@@ -86,13 +84,13 @@ export default function Navbar() {
               className="flex items-center space-x-3 px-3 py-1 rounded-md transition"
             >
               <Image
-                src={user.profileImage || "/default-profile.jpg"}
+                src={user?.profileImage || "/default-profile.jpg"}
                 alt="User Profile"
                 width={40}
                 height={40}
                 className="rounded-full object-cover"
               />
-              <span className="font-bold">{user.fullName}</span>
+              <span className="font-bold">{user?.fullName}</span>
             </button>
 
             {dropdownOpen && (
