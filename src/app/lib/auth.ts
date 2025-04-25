@@ -7,15 +7,12 @@ interface User {
   email: string;
   password: string;
   role: UserRole;
-  profileImage: string;
 }
 
 export function setAuth(user: User) {
   if (typeof window !== "undefined") {
-    const { fullName, email, role, profileImage } = user;
-
-      // Store the user data without password
-      localStorage.setItem("user", JSON.stringify({ fullName, email, role, profileImage }));
+    const { fullName, email, role } = user;
+    localStorage.setItem("user", JSON.stringify({ fullName, email, role }));
   }
 }
 
@@ -37,8 +34,7 @@ export function registerUser(
   fullName: string,
   email: string,
   password: string,
-  role: UserRole,
-  profileImage: string
+  role: UserRole
 ): string {
   if (typeof window === "undefined") return "Environment error";
 
@@ -51,7 +47,13 @@ export function registerUser(
 
   const encryptedPassword = encryptPassword(password);
 
-  users.push({ fullName, email, password: encryptedPassword, role, profileImage });
+  users.push({
+    fullName,
+    email,
+    password: encryptedPassword,
+    role,
+  });
+
   localStorage.setItem("users", JSON.stringify(users));
   return "Account created";
 }

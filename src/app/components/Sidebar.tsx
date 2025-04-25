@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import adminSidebarItems from "@/utils/adminSidebarItem.json";
 import { getAuth, clearAuth } from "@/app/lib/auth";
-import Image from "next/image";
 import { JSX } from "react";
 
 // Define the type for the iconMap
@@ -38,19 +37,12 @@ const Sidebar = () => {
     return null;
   }
 
-  const { fullName, profileImage } = user;
+  const { fullName } = user;
 
   return (
     <aside className="fixed top-0 left-0 w-64 h-screen bg-gray-900 text-white p-6 flex flex-col justify-between shadow-lg z-50">
       <div>
         <div className="mb-8 flex items-center space-x-4">
-          <Image
-            src={profileImage || "/default-profile.jpg"}
-            alt="Admin Profile"
-            width={48} // 12 * 4 = 48px
-            height={48}
-            className="rounded-full object-cover"
-          />
           <div>
             <h2 className="text-base font-bold">{fullName}</h2>
           </div>
