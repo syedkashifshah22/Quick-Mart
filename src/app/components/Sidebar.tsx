@@ -13,7 +13,6 @@ import adminSidebarItems from "@/utils/adminSidebarItem.json";
 import { getAuth, clearAuth } from "@/app/lib/auth";
 import { JSX } from "react";
 
-// Define the type for the iconMap
 const iconMap: Record<string, JSX.Element> = {
   "layout-dashboard": <LayoutDashboard className="w-5 h-5 mr-3" />,
   users: <Users className="w-5 h-5 mr-3" />,
@@ -55,7 +54,7 @@ const Sidebar = () => {
                   href={item.url}
                   className="flex items-center px-4 py-2 rounded-md hover:bg-gray-800 transition"
                 >
-                  {iconMap[item.icon]} {/* Access icon using the key */}
+                  {iconMap[item.icon]} 
                   <span>{item.title}</span>
                 </Link>
               </li>
