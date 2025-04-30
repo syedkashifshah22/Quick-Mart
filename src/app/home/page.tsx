@@ -1,6 +1,10 @@
+import HeroUser from "./components/heroUser";
 
-export default function HomeU() {
-  return (
-    <h1>home</h1>
-  );
-}
+export default function UserHome() {
+    return (
+        <>
+        <HeroUser />
+        </>
+    )
+  }
+  

@@ -15,7 +15,7 @@ export default function LoginPage() {
     if (user) {
       setAuth(user);
       window.dispatchEvent(new Event("userChanged"));
-      router.push(user.role === "admin" ? "/admin/dashboard" : "/user/dashboard");
+      router.push(user.role === "admin" ? "/admin/dashboard" : "/");
     } else {
       alert("Invalid credentials or account not found");
       router.push("/signup");
@@ -54,7 +54,8 @@ export default function LoginPage() {
           />
         </div>
 
-        <button className="w-full bg-gray-600 hover:bg-gray-400 text-white font-medium py-2 rounded-md transition duration-300">
+        <button
+         className="w-full bg-gray-600 hover:bg-gray-400 text-white font-medium py-2 rounded-md transition duration-300">
           Login
         </button>
 
