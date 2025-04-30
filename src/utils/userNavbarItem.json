@@ -1,80 +1,107 @@
 [
   {
     "title": "Home",
-    "icon": "home",
     "url": "/home"
   },
   {
     "title": "Product",
-    "icon": "store",
     "url": "/product",
-    "dropdown": [
-    {
-      "title": "Dress",
-      "url": "/product/dress"
-    },
-    {
-      "title": "Watch",
-      "url": "/product/watch"
-    },
-    {
-      "title": "Shoes",
-      "url": "/product/shoes"
-    },
-    {
-      "title": "Bags",
-      "url": "/product/bags"
-    },
-    {
-      "title": "Jewellery",
-      "url": "/product/jewellery"
-    }
-  ]
+    "titleItems": [
+      {
+        "titleItem": "Dress",
+        "items": [
+          {
+            "title": "Dress",
+            "url": "/product/dress"
+          }
+        ]
+      },
+      {
+        "titleItem": "Watch",
+        "items": [
+          {
+            "title": "Watch",
+            "url": "/product/watch"
+          }
+        ]
+      },
+      {
+        "titleItem": "Shoes",
+        "items": [
+          {
+            "title": "Shoes",
+            "url": "/product/shoes"
+          }
+        ]
+      },
+      {
+        "titleItem": "Bags",
+        "items": [
+          {
+            "title": "Bags",
+            "url": "/product/bags"
+          }
+        ]
+      },
+      {
+        "titleItem": "Jewellery",
+        "items": [
+          {
+            "title": "Jewellery",
+            "url": "/product/jewellery"
+          }
+        ]
+      },
+      {
+        "titleItem": "Ice Cream",
+        "items": [
+          {
+            "title": "Flavors",
+            "url": "/icecream/flavors"
+          },
+          {
+            "title": "Cones",
+            "url": "/icecream/cones"
+          },
+          {
+            "title": "Sundaes",
+            "url": "/icecream/sundaes"
+          },
+          {
+            "title": "Family Packs",
+            "url": "/icecream/family-packs"
+          }
+        ]
+      },
+      {
+        "titleItem": "Food",
+        "items": [
+          {
+            "title": "Fast Food",
+            "url": "/food/fast-food"
+          },
+          {
+            "title": "Desi Food",
+            "url": "/food/desi"
+          },
+          {
+            "title": "Chinese",
+            "url": "/food/chinese"
+          },
+          {
+            "title": "BBQ",
+            "url": "/food/bbq"
+          }
+        ]
+      }
+    ]
   },
   {
-    "title": "Ice Cream",
-    "icon": "shopping-cart",
-    "url": "/icecream",
-    "dropdown": [
-    {
-      "title": "Flavors",
-      "url": "/icecream/flavors"
-    },
-    {
-      "title": "Cones",
-      "url": "/icecream/cones"
-    },
-    {
-      "title": "Sundaes",
-      "url": "/icecream/sundaes"
-    },
-    {
-      "title": "Family Packs",
-      "url": "/icecream/family-packs"
-    }
-  ]
+    "title": "About Us",
+    "url": "/about"
   },
   {
-    "title": "Food",
-    "icon": "package",
-    "url": "/food",
-    "dropdown": [
-    {
-      "title": "Fast Food",
-      "url": "/food/fast-food"
-    },
-    {
-      "title": "Desi Food",
-      "url": "/food/desi"
-    },
-    {
-      "title": "Chinese",
-      "url": "/food/chinese"
-    },
-    {
-      "title": "BBQ",
-      "url": "/food/bbq"
-    }
-  ]
+    "title": "Contact",
+    "url": "/contact"
   }
 ]

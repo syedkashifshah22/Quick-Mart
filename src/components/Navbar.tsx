@@ -2,9 +2,9 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { clearAuth, getAuth } from "@/app/lib/auth";
-import userNavbarItems from "@/utils/userNavbarItem.json";
 import Image from "next/image";
 import Link from "next/link";
+import Dropdown from "./dropdown"; // Import Dropdown
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -103,44 +103,7 @@ export default function Navbar() {
       </Link>
 
       <div className="gap-6 items-center relative md:flex hidden">
-        {role === "user" &&
-          userNavbarItems.map((item) => (
-            <div
-              key={item.title}
-              className="relative"
-              ref={(el) => {
-                dropdownRefs.current[item.title] = el;
-              }}
-            >
-              {item.dropdown ? (
-                <>
-                  <button
-                    onClick={() => toggleDropdown(item.title)}
-                    className="cursor-pointer hover:text-gray-400"
-                  >
-                    {item.title}
-                  </button>
-                  {dropdownOpen[item.title] && (
-                    <div className="absolute top-full mt-2 w-32 bg-gray-700 text-white z-50 rounded-md overflow-hidden cursor-pointer shadow-md">
-                      {item.dropdown.map((subItem) => (
-                        <Link
-                          key={subItem.title}
-                          href={subItem.url}
-                          className="block px-4 py-2 hover:bg-gray-400 text-sm"
-                        >
-                          {subItem.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </>
-              ) : (
-                <Link href={item.url} className="hover:text-gray-400">
-                  {item.title}
-                </Link>
-              )}
-            </div>
-          ))}
+        {role === "user" && <Dropdown />} {/* Add Dropdown here for user */}
 
         {user && (
           <div className="relative flex items-center space-x-2">
@@ -239,43 +202,8 @@ export default function Navbar() {
           </div>
 
           {/* mobile Dropdown */}
-          <div className="flex flex-col text-white w-full px-6 gap-1">
-            {userNavbarItems.map((item) => (
-              <div key={item.title} className="w-full">
-                {item.dropdown ? (
-                  <>
-                    <button
-                      onClick={() => toggleDropdown(item.title)}
-                      className="w-full py-2 text-left text-lg font-medium"
-                    >
-                      {item.title}
-                    </button>
-                    {dropdownOpen[item.title] && (
-                      <div className="w-full bg-gray-700 text-white rounded-md">
-                        {item.dropdown.map((subItem) => (
-                          <Link
-                            key={subItem.title}
-                            href={subItem.url}
-                            className="block px-4 py-2 hover:bg-gray-400 text-sm"
-                            onClick={() => setMenuOpen(false)}
-                          >
-                            {subItem.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    href={item.url}
-                    className="block w-full py-2 text-left text-lg font-medium"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {item.title}
-                  </Link>
-                )}
-              </div>
-            ))}
+          <div className="flex flex-col w-full px-6 gap-4">
+            <Dropdown /> 
 
             {/* User Profile Dropdown */}
             {user && (

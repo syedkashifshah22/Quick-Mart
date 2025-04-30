@@ -32,7 +32,7 @@ export default function HeroUser() {
   return (
     <div className="w-full max-w-8xl mx-auto">
       {!showSlider ? (
-        <div className="relative w-full h-[600px] overflow-hidden flex items-center justify-center">
+        <div className="relative w-full h-[400px] sm:h-[600px] overflow-hidden flex items-center justify-center">
           <div className="relative w-full h-full">
             {images.map((img, index) => (
               <motion.div
@@ -46,7 +46,7 @@ export default function HeroUser() {
                   src={img.src}
                   alt={`Banner ${index + 1}`}
                   layout="fill"
-                  objectFit="cover"
+                  objectFit="container md:cover"
                 />
               </motion.div>
             ))}
@@ -61,12 +61,12 @@ export default function HeroUser() {
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full h-[600px]">
+              <div className="relative w-full h-[400px] sm:h-[600px]">
                 <Image
                   src={img.src}
                   alt={`Slide ${index + 1}`}
                   layout="fill"
-                  objectFit="cover"
+                  objectFit="container md:cover"
                 />
               </div>
             </SwiperSlide>
