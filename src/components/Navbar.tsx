@@ -4,18 +4,13 @@ import { useRouter } from "next/navigation";
 import { clearAuth, getAuth } from "@/app/lib/auth";
 import Image from "next/image";
 import Link from "next/link";
-import Dropdown from "./dropdown"; // Import Dropdown
+import Dropdown from "./UI/dropdown";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [role, setRole] = useState<"admin" | "user" | null>(null);
-  const [dropdownOpen, setDropdownOpen] = useState<{ [key: string]: boolean }>(
-    {}
-  );
-  const [user, setUser] = useState<{
-    fullName: string;
-    email: string;
-  } | null>(null);
+  const [dropdownOpen, setDropdownOpen] = useState<{ [key: string]: boolean }>({});
+  const [user, setUser] = useState<{ fullName: string; email: string } | null>(null);
   const router = useRouter();
 
   const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -75,19 +70,23 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      for (const key in dropdownRefs.current) {
-        const ref = dropdownRefs.current[key];
-        if (ref && !ref.contains(event.target as Node)) {
-          setDropdownOpen((prev) => ({ ...prev, [key]: false }));
+      const target = event.target as HTMLElement;
+      if (target) {
+        for (const key in dropdownRefs.current) {
+          const ref = dropdownRefs.current[key];
+          if (ref && !ref.contains(target) && !target.closest('button')) {
+            setDropdownOpen((prev) => ({ ...prev, [key]: false }));
+          }
         }
       }
     };
-
+  
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  
 
   if (!role) return null;
 
@@ -103,7 +102,7 @@ export default function Navbar() {
       </Link>
 
       <div className="gap-6 items-center relative md:flex hidden">
-        {role === "user" && <Dropdown />} {/* Add Dropdown here for user */}
+        {role === "user" && <Dropdown />}
 
         {user && (
           <div className="relative flex items-center space-x-2">
@@ -116,12 +115,19 @@ export default function Navbar() {
                 alt="User Profile"
                 width={40}
                 height={40}
-                className="rounded-full object-cover"
+                className="rounded-full object-cover cursor-pointer"
               />
             </button>
 
             {dropdownOpen["user"] && (
-              <div className="absolute top-16 -right-4 mt-2 w-38 py-4 bg-gray-700 text-white z-50 flex flex-col rounded-md overflow-hidden cursor-pointer shadow-md">
+              <div
+                ref={(el: HTMLDivElement | null) => {
+                  dropdownRefs.current["user"] = el; 
+                }}
+                className={`absolute top-16 -right-4 mt-2 py-4 bg-gray-700 text-white z-50 flex flex-col rounded-md overflow-hidden cursor-pointer shadow-md ${
+                  user.fullName.length > 15 ? 'w-60' : 'w-36'
+                }`}
+              >
                 <div className="flex flex-col px-4 py-2">
                   <div className="flex items-center">
                     <Image
@@ -139,7 +145,6 @@ export default function Navbar() {
                   </div>
                   <span className="text-sm block mt-4">{user.email}</span>
                 </div>
-
                 <Link
                   href="/profile"
                   className="px-4 py-2 hover:text-gray-400 text-sm"
@@ -203,13 +208,13 @@ export default function Navbar() {
 
           {/* mobile Dropdown */}
           <div className="flex flex-col w-full px-6 gap-4">
-            <Dropdown /> 
+            <Dropdown />
 
             {/* User Profile Dropdown */}
             {user && (
-              <div className="flex flex-col w-full mt-4">
+              <div className="flex flex-col w-40 mt-4 cursor-pointer">
                 <button
-                  onClick={() => toggleDropdown("user")}
+                  onClick={() => toggleDropdown("user")} // Toggle dropdown on button click
                   className="w-full py-2 flex items-center gap-3 text-left text-lg font-medium"
                 >
                   <Image
