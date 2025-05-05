@@ -408,22 +408,22 @@
           {
             "heading": "Vanilla",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
           },
           {
             "heading": "Chocolate",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/chocolate.jpg"
           },
           {
             "heading": "Strawberry",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/strawberry.jpg"
           },
           {
             "heading": "Mango",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/mango.jpg"
           }
         ]
       },
@@ -433,17 +433,17 @@
           {
             "heading": "Sugar Cone",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
           },
           {
             "heading": "Waffle Cone",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
           },
           {
             "heading": "Chocolate Dipped",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
           }
         ]
       },
@@ -453,17 +453,17 @@
           {
             "heading": "Hot Fudge",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
           },
           {
             "heading": "Brownie",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
           },
           {
             "heading": "Caramel",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
           }
         ]
       },
@@ -473,17 +473,17 @@
           {
             "heading": "1 Liter Pack",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
           },
           {
             "heading": "2 Liter Pack",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
           },
           {
             "heading": "Party Pack",
             "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
           }
         ]
       }
