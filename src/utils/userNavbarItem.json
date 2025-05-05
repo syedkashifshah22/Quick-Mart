@@ -1,27 +1,231 @@
 [
   {
-    "title": "Home",
+    "NavbarTitle": "Home",
     "url": "/home"
   },
   {
-    "title": "Product",
+    "NavbarTitle": "Product",
     "url": "/product",
     "titleItems": [
+      {
+        "titleItem": "Electronics",
+        "items": [
+          {
+            "title": "Desktops",
+            "url": "/product/desktops",
+            "subItem": [
+              { "title": "Gaming PCs", "url": "/product/desktops/gaming" },
+              { "title": "All-in-One PCs", "url": "/product/desktops/all-in-One-PCs" },
+              { "title": "Mini PCs", "url": "/product/desktops/mini-PCs" },
+              { "title": "Workstations", "url": "/product/desktops/workstations" },
+              { "title": "Barebone Systems", "url": "/product/desktops/barebone-systems" }
+            ]
+          },
+          {
+            "title": "Laptop",
+            "url": "/product/laptop",
+            "subItem": [
+              { "title": "Gaming Laptop", "url": "/product/laptop/gaming" },
+              { "title": "Business Laptop", "url": "/product/laptop/business" },
+              { "title": "2-in-1 Laptop", "url": "/product/laptop/2-in-1" },
+              { "title": "Ultrabooks", "url": "/product/laptop/ultrabooks" },
+              { "title": "Chromebooks", "url": "/product/laptop/chromebooks" },
+              { "title": "MacBooks", "url": "/product/laptop/macBooks" }
+            ]
+          },
+          {
+            "title": "Keyboard",
+            "url": "/product/keyboard",
+            "subItem": [
+              { "title": "Mechanical Keyboard", "url": "/product/keyboard/mechanical" },
+              { "title": "Wireless Keyboard", "url": "/product/keyboard/wireless" },
+              { "title": "Gaming Keyboard", "url": "/product/keyboard/gaming" },
+              { "title": "Ergonomic Keyboard", "url": "/product/keyboard/ergonomic" },
+              { "title": "Mini Keyboard", "url": "/product/keyboard/mini" },
+              { "title": "Backlit Keyboard", "url": "/product/keyboard/backlit" }
+            ]
+          },          
+          {
+            "title": "Mouse",
+            "url": "/product/mouse",
+            "subItem": [
+              { "title": "Wireless Mouse", "url": "/product/mouse/wireless" },
+              { "title": "Gaming Mouse", "url": "/product/mouse/gaming" },
+              { "title": "Ergonomic Mouse", "url": "/product/mouse/ergonomic" },
+              { "title": "Bluetooth Mouse", "url": "/product/mouse/bluetooth" },
+              { "title": "Vertical Mouse", "url": "/product/mouse/vertical" }
+            ]
+          },
+          {
+            "title": "LCD / Monitor",
+            "url": "/product/lcd/monitor",
+            "subItem": [
+              { "title": "4K Monitor", "url": "/product/lcd/monitor/4k" },
+              { "title": "Curved Monitor", "url": "/product/lcd/monitor/curved" },
+              { "title": "Gaming Monitor", "url": "/product/lcd/monitor/gaming" },
+              { "title": "Ultrawide Monitor", "url": "/product/lcd/monitor/ultrawide" },
+              { "title": "Portable Monitor", "url": "/product/lcd/monitor/portable" }
+            ]
+          },
+          {
+            "title": "Printer",
+            "url": "/product/printer",
+            "subItem": [
+              { "title": "Inkjet Printer", "url": "/product/printer/inkjet" },
+              { "title": "Laser Printer", "url": "/product/printer/laser" },
+              { "title": "All-in-One Printer", "url": "/product/printer/all-in-one" },
+              { "title": "Photo Printer", "url": "/product/printer/photo" },
+              { "title": "3D Printer", "url": "/product/printer/3d" }
+            ]
+          },
+          {
+            "title": "Scanner",
+            "url": "/product/scanner",
+            "subItem": [
+              { "title": "Flatbed Scanner", "url": "/product/scanner/flatbed" },
+              { "title": "Sheet-fed Scanner", "url": "/product/scanner/sheet-fed" },
+              { "title": "Portable Scanner", "url": "/product/scanner/portable" }
+            ]
+          },
+          {
+            "title": "Webcam",
+            "url": "/product/webcam",
+            "subItem": [
+              { "title": "HD Webcam", "url": "/product/webcam/hd" },
+              { "title": "4K Webcam", "url": "/product/webcam/4k" },
+              { "title": "Streaming Webcam", "url": "/product/webcam/streaming" },
+              { "title": "Conference Webcam", "url": "/product/webcam/conference" }
+            ]
+          },
+          {
+            "title": "Speakers",
+            "url": "/product/speakers",
+            "subItem": [
+              { "title": "Bluetooth Speakers", "url": "/product/speakers/bluetooth" },
+              { "title": "Desktop Speakers", "url": "/product/speakers/desktop" },
+              { "title": "Soundbar", "url": "/product/speakers/soundbar" },
+              { "title": "Smart Speakers", "url": "/product/speakers/smart" }
+            ]
+          },
+          {
+            "title": "EHD",
+            "url": "/product/externalHardDrive",
+            "subItem": [
+              { "title": "HDD", "url": "/product/externalHardDrive/hdd" },
+              { "title": "SSD", "url": "/product/externalHardDrive/ssd" },
+              { "title": "Portable Drive", "url": "/product/externalHardDrive/portable" },
+              { "title": "Rugged Drive", "url": "/product/externalHardDrive/rugged" }
+            ]
+          },
+          {
+            "title": "Headphones",
+            "url": "/product/headphones",
+            "subItem": [
+              { "title": "Over-Ear", "url": "/product/headphones/over-ear" },
+              { "title": "In-Ear", "url": "/product/headphones/in-ear" },
+              { "title": "Wireless", "url": "/product/headphones/wireless" },
+              { "title": "Noise Cancelling", "url": "/product/headphones/noise-cancelling" }
+            ]
+          },
+          {
+            "title": "Microphone",
+            "url": "/product/microphone",
+            "subItem": [
+              { "title": "Condenser Mic", "url": "/product/microphone/condenser" },
+              { "title": "Dynamic Mic", "url": "/product/microphone/dynamic" },
+              { "title": "USB Mic", "url": "/product/microphone/usb" },
+              { "title": "Lavalier Mic", "url": "/product/microphone/lavalier" }
+            ]
+          },
+          {
+            "title": "Graphics Card",
+            "url": "/product/graphicsCard",
+            "subItem": [
+              { "title": "NVIDIA", "url": "/product/graphicsCard/nvidia" },
+              { "title": "AMD", "url": "/product/graphicsCard/amd" },
+              { "title": "Entry-Level", "url": "/product/graphicsCard/entry-level" },
+              { "title": "Workstation GPU", "url": "/product/graphicsCard/workstation" }
+            ]
+          },
+          {
+            "title": "Motherboard",
+            "url": "/product/motherboard",
+            "subItem": [
+              { "title": "ATX Motherboard", "url": "/product/motherboard/atx" },
+              { "title": "Micro-ATX", "url": "/product/motherboard/micro-atx" },
+              { "title": "Mini-ITX", "url": "/product/motherboard/mini-itx" },
+              { "title": "Server Motherboard", "url": "/product/motherboard/server" }
+            ]
+          }          
+        ]
+      },
       {
         "titleItem": "Dress",
         "items": [
           {
-            "title": "Dress",
-            "url": "/product/dress"
+            "title": "Men",
+            "url": "/product/men",
+            "subItem": [
+              { "title": "Shirts", "url": "/product/men/shirts" },
+              { "title": "Trousers", "url": "/product/men/trousers" },
+              { "title": "Jackets", "url": "/product/men/jackets" },
+              { "title": "Suits", "url": "/product/men/suits" },
+              { "title": "Traditional Wear", "url": "/product/men/traditional" }
+            ]
+          },
+          {
+            "title": "Women",
+            "url": "/product/women",
+            "subItem": [
+              { "title": "Dresses", "url": "/product/women/dresses" },
+              { "title": "Tops", "url": "/product/women/tops" },
+              { "title": "Skirts", "url": "/product/women/skirts" },
+              { "title": "Sarees", "url": "/product/women/sarees" },
+              { "title": "Shalwar Kameez", "url": "/product/women/shalwar-kameez" }
+            ]
+          },
+          {
+            "title": "Children",
+            "url": "/product/children",
+            "subItem": [
+              { "title": "T-Shirts", "url": "/product/children/t-shirts" },
+              { "title": "Shorts", "url": "/product/children/shorts" },
+              { "title": "Frocks", "url": "/product/children/frocks" },
+              { "title": "Party Wear", "url": "/product/children/party-wear" },
+              { "title": "Winter Wear", "url": "/product/children/winter-wear" }
+            ]
           }
         ]
-      },
+      },      
       {
         "titleItem": "Watch",
         "items": [
           {
-            "title": "Watch",
-            "url": "/product/watch"
+            "title": "Men",
+            "url": "/product/watch/men",
+            "subItem": [
+              { "title": "Analog Watch", "url": "/product/watch/men/analog" },
+              { "title": "Digital Watch", "url": "/product/watch/men/digital" },
+              { "title": "Smart Watch", "url": "/product/watch/men/smart" }
+            ]
+          },
+          {
+            "title": "Women",
+            "url": "/product/watch/women",
+            "subItem": [
+              { "title": "Bracelet Watch", "url": "/product/watch/women/bracelet" },
+              { "title": "Smart Watch", "url": "/product/watch/women/smart" },
+              { "title": "Luxury Watch", "url": "/product/watch/women/luxury" }
+            ]
+          },
+          {
+            "title": "Children",
+            "url": "/product/watch/children",
+            "subItem": [
+              { "title": "Cartoon Watch", "url": "/product/watch/children/cartoon" },
+              { "title": "Digital Watch", "url": "/product/watch/children/digital" },
+              { "title": "Smart Watch", "url": "/product/watch/children/smart" }
+            ]
           }
         ]
       },
@@ -29,8 +233,31 @@
         "titleItem": "Shoes",
         "items": [
           {
-            "title": "Shoes",
-            "url": "/product/shoes"
+            "title": "Men",
+            "url": "/product/shoes/men",
+            "subItem": [
+              { "title": "Formal Shoes", "url": "/product/shoes/men/formal" },
+              { "title": "Casual Shoes", "url": "/product/shoes/men/casual" },
+              { "title": "Sports Shoes", "url": "/product/shoes/men/sports" }
+            ]
+          },
+          {
+            "title": "Women",
+            "url": "/product/shoes/women",
+            "subItem": [
+              { "title": "Heels", "url": "/product/shoes/women/heels" },
+              { "title": "Flats", "url": "/product/shoes/women/flats" },
+              { "title": "Sneakers", "url": "/product/shoes/women/sneakers" }
+            ]
+          },
+          {
+            "title": "Children",
+            "url": "/product/shoes/children",
+            "subItem": [
+              { "title": "School Shoes", "url": "/product/shoes/children/school" },
+              { "title": "Sports Shoes", "url": "/product/shoes/children/sports" },
+              { "title": "Sandals", "url": "/product/shoes/children/sandals" }
+            ]
           }
         ]
       },
@@ -38,8 +265,31 @@
         "titleItem": "Bags",
         "items": [
           {
-            "title": "Bags",
-            "url": "/product/bags"
+            "title": "Men",
+            "url": "/product/bags/men",
+            "subItem": [
+              { "title": "Backpacks", "url": "/product/bags/men/backpacks" },
+              { "title": "Laptop Bags", "url": "/product/bags/men/laptop" },
+              { "title": "Messenger Bags", "url": "/product/bags/men/messenger" }
+            ]
+          },
+          {
+            "title": "Women",
+            "url": "/product/bags/women",
+            "subItem": [
+              { "title": "Handbags", "url": "/product/bags/women/handbags" },
+              { "title": "Tote Bags", "url": "/product/bags/women/tote" },
+              { "title": "Clutches", "url": "/product/bags/women/clutches" }
+            ]
+          },
+          {
+            "title": "Children",
+            "url": "/product/bags/children",
+            "subItem": [
+              { "title": "School Bags", "url": "/product/bags/children/school" },
+              { "title": "Trolley Bags", "url": "/product/bags/children/trolley" },
+              { "title": "Lunch Bags", "url": "/product/bags/children/lunch" }
+            ]
           }
         ]
       },
@@ -47,11 +297,34 @@
         "titleItem": "Jewellery",
         "items": [
           {
-            "title": "Jewellery",
-            "url": "/product/jewellery"
+            "title": "Men",
+            "url": "/product/jewellery/men",
+            "subItem": [
+              { "title": "Bracelets", "url": "/product/jewellery/men/bracelets" },
+              { "title": "Chains", "url": "/product/jewellery/men/chains" },
+              { "title": "Rings", "url": "/product/jewellery/men/rings" }
+            ]
+          },
+          {
+            "title": "Women",
+            "url": "/product/jewellery/women",
+            "subItem": [
+              { "title": "Necklaces", "url": "/product/jewellery/women/necklaces" },
+              { "title": "Earrings", "url": "/product/jewellery/women/earrings" },
+              { "title": "Bangles", "url": "/product/jewellery/women/bangles" }
+            ]
+          },
+          {
+            "title": "Children",
+            "url": "/product/jewellery/children",
+            "subItem": [
+              { "title": "Kids Bracelets", "url": "/product/jewellery/children/bracelets" },
+              { "title": "Kids Necklaces", "url": "/product/jewellery/children/necklaces" },
+              { "title": "Kids Rings", "url": "/product/jewellery/children/rings" }
+            ]
           }
         ]
-      },
+      },      
       {
         "titleItem": "Ice Cream",
         "items": [
@@ -97,11 +370,11 @@
     ]
   },
   {
-    "title": "About Us",
+    "NavbarTitle": "About Us",
     "url": "/about"
   },
   {
-    "title": "Contact",
+    "NavbarTitle": "Contact",
     "url": "/contact"
   }
 ]

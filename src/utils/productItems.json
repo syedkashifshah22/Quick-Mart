@@ -1,4 +1,29 @@
 {
+  "Electronics": {
+    "title": "Electronics",
+    "data": [
+      {
+        "subtitle": "Computer",
+        "subTitles": [
+          {
+            "heading": "Blueberry Blast",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          }
+        ]
+      },
+      {
+        "subtitle": "Laptop",
+        "subTitles": [
+          {
+            "heading": "Blueberry Blast",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          }
+        ]
+      }
+    ]
+  },
   "Dress": {
     "title": "Dress",
     "data": [

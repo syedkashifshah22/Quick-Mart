@@ -57,7 +57,6 @@ export default function ProductsHome() {
     }
   }
 
-  // ✅ Collect all cards (ProductDetail level)
   const allCards = filteredProducts.flatMap((category) =>
     category.data.flatMap((item) =>
       item.subTitles.map((detail) => ({
@@ -68,13 +67,11 @@ export default function ProductsHome() {
     )
   );
 
-  // ✅ Pagination cards wise
   const totalPages = Math.ceil(allCards.length / itemsPerPage);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentPageCards = allCards.slice(startIndex, startIndex + itemsPerPage);
 
-  // ✅ Prepare data for Cards component
   const cardsForUI: CategoryData[] = [
     {
       title: activeCategory,
@@ -93,7 +90,7 @@ export default function ProductsHome() {
 
   return (
     <div className="py-8">
-      <h1 className="text-7xl text-center py-14">Products</h1>
+      <h1 className="text-5xl md:text-7xl text-center py-14">Products Categories</h1>
 
       <div className="flex justify-center flex-wrap gap-6 mb-6">
         <button

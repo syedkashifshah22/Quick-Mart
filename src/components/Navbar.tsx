@@ -5,12 +5,18 @@ import { clearAuth, getAuth } from "@/app/lib/auth";
 import Image from "next/image";
 import Link from "next/link";
 import Dropdown from "./UI/dropdown";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { FaCircleUser } from "react-icons/fa6";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [role, setRole] = useState<"admin" | "user" | null>(null);
-  const [dropdownOpen, setDropdownOpen] = useState<{ [key: string]: boolean }>({});
-  const [user, setUser] = useState<{ fullName: string; email: string } | null>(null);
+  const [dropdownOpen, setDropdownOpen] = useState<{ [key: string]: boolean }>(
+    {}
+  );
+  const [user, setUser] = useState<{ fullName: string; email: string } | null>(
+    null
+  );
   const router = useRouter();
 
   const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -42,6 +48,22 @@ export default function Navbar() {
   }, [router]);
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 786) {
+        setMenuOpen(false);
+      }
+    };
+  
+    handleResize();
+  
+    window.addEventListener('resize', handleResize);
+  
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  
+  useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -51,6 +73,7 @@ export default function Navbar() {
       document.body.style.overflow = "auto";
     };
   }, [menuOpen]);
+  
 
   const handleLogout = () => {
     clearAuth();
@@ -74,25 +97,25 @@ export default function Navbar() {
       if (target) {
         for (const key in dropdownRefs.current) {
           const ref = dropdownRefs.current[key];
-          if (ref && !ref.contains(target) && !target.closest('button')) {
+          if (ref && !ref.contains(target) && !target.closest("button")) {
             setDropdownOpen((prev) => ({ ...prev, [key]: false }));
           }
         }
       }
     };
-  
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  
 
   if (!role) return null;
 
   return (
     <nav className="flex justify-between items-center px-4 bg-gray-800 text-white">
-      <Link href="/home" className="pl-12">
+      <div className="gap-8 items-center relative md:flex hidden">
+      <Link href="/home" className="lg:pl-12">
         <Image
           src="/assets/QuickMartLogo.png"
           alt="QuickMart Logo"
@@ -100,31 +123,25 @@ export default function Navbar() {
           height={80}
         />
       </Link>
-
-      <div className="gap-6 items-center relative md:flex hidden">
         {role === "user" && <Dropdown />}
 
+      </div>
         {user && (
           <div className="relative flex items-center space-x-2">
             <button
               onClick={() => toggleDropdown("user")}
               className="flex items-center space-x-2 px-3 py-1 rounded-md transition"
             >
-              <Image
-                src="/assets/userIcon.jpg"
-                alt="User Profile"
-                width={40}
-                height={40}
-                className="rounded-full object-cover cursor-pointer"
-              />
+              <FaCircleUser size={30} />
+              {dropdownOpen["user"] ? <IoIosArrowDown /> : <IoIosArrowUp />}
             </button>
 
             {dropdownOpen["user"] && (
               <div
                 ref={(el: HTMLDivElement | null) => {
-                  dropdownRefs.current["user"] = el; 
+                  dropdownRefs.current["user"] = el;
                 }}
-                className="absolute top-16 right-0 py-4 bg-gray-700 text-white z-50 flex flex-col rounded-md overflow-hidden cursor-pointer shadow-md
+                className="absolute top-11 right-0 py-4 bg-gray-700 text-white z-50 flex flex-col rounded-md overflow-hidden cursor-pointer shadow-md
                   w-60"
               >
                 <div className="flex flex-col px-4 py-2">
@@ -166,7 +183,6 @@ export default function Navbar() {
             )}
           </div>
         )}
-      </div>
 
       {/* Mobile Menu Button (Hamburger Icon) */}
       <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2">
@@ -213,16 +229,11 @@ export default function Navbar() {
             {user && (
               <div className="flex flex-col w-60 mt-4 cursor-pointer">
                 <button
-                  onClick={() => toggleDropdown("user")} 
-                  className="w-full py-2 flex items-center gap-3 text-left text-lg font-medium"
+                  onClick={() => toggleDropdown("user")}
+                  className="flex items-center space-x-2 px-3 py-1 rounded-md transition"
                 >
-                  <Image
-                    src="/assets/userIcon.jpg"
-                    alt="User Profile"
-                    width={40}
-                    height={40}
-                    className="rounded-full object-cover"
-                  />
+                  <FaCircleUser size={30} />
+                  {dropdownOpen["user"] ? <IoIosArrowDown /> : <IoIosArrowUp />}
                 </button>
                 {dropdownOpen["user"] && (
                   <div className="w-full bg-gray-700 text-white rounded-md py-4">

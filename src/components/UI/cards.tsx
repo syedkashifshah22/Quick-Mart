@@ -23,7 +23,7 @@ interface CardsProps {
 
 export default function Cards({ products }: CardsProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 pt-22">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 pt-4">
       {products.flatMap((item, i) =>
         item.data.flatMap((subItem, j) =>
           subItem.subTitles.map((product, idx) => (
