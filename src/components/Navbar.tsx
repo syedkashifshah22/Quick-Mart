@@ -124,9 +124,8 @@ export default function Navbar() {
                 ref={(el: HTMLDivElement | null) => {
                   dropdownRefs.current["user"] = el; 
                 }}
-                className={`absolute top-16 -right-4 mt-2 py-4 bg-gray-700 text-white z-50 flex flex-col rounded-md overflow-hidden cursor-pointer shadow-md ${
-                  user.fullName.length > 15 ? 'w-60' : 'w-36'
-                }`}
+                className="absolute top-16 right-0 py-4 bg-gray-700 text-white z-50 flex flex-col rounded-md overflow-hidden cursor-pointer shadow-md
+                  w-60"
               >
                 <div className="flex flex-col px-4 py-2">
                   <div className="flex items-center">
@@ -147,19 +146,19 @@ export default function Navbar() {
                 </div>
                 <Link
                   href="/profile"
-                  className="px-4 py-2 hover:text-gray-400 text-sm"
+                  className="px-4 py-2 hover:text-gray-400 text-base"
                 >
                   My Profile
                 </Link>
                 <Link
                   href="/settings"
-                  className="px-4 py-2 hover:text-gray-400 text-sm"
+                  className="px-4 py-2 hover:text-gray-400 text-base"
                 >
                   Settings
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="text-left px-4 py-2 text-[#ef233c] hover:text-[#ff0a54] text-sm cursor-pointer"
+                  className="text-left px-4 py-2 w-56 ml-2 rounded-md  bg-[#ef233c] hover:bg-red-600 text-base cursor-pointer"
                 >
                   Logout
                 </button>
@@ -212,9 +211,9 @@ export default function Navbar() {
 
             {/* User Profile Dropdown */}
             {user && (
-              <div className="flex flex-col w-40 mt-4 cursor-pointer">
+              <div className="flex flex-col w-60 mt-4 cursor-pointer">
                 <button
-                  onClick={() => toggleDropdown("user")} // Toggle dropdown on button click
+                  onClick={() => toggleDropdown("user")} 
                   className="w-full py-2 flex items-center gap-3 text-left text-lg font-medium"
                 >
                   <Image
@@ -226,8 +225,8 @@ export default function Navbar() {
                   />
                 </button>
                 {dropdownOpen["user"] && (
-                  <div className="w-full bg-gray-700 text-white rounded-md">
-                    <div className="flex flex-col px-4 py-2">
+                  <div className="w-full bg-gray-700 text-white rounded-md py-4">
+                    <div className="flex flex-col px-4">
                       <div className="flex items-center">
                         <Image
                           src="/assets/userIcon.jpg"
@@ -242,18 +241,18 @@ export default function Navbar() {
                           </span>
                         </div>
                       </div>
-                      <span className="text-sm block mt-4">{user.email}</span>
+                      <span className="text-sm block my-4">{user.email}</span>
                     </div>
                     <Link
                       href="/profile"
-                      className="block px-4 py-2 hover:bg-gray-400 text-sm"
+                      className="block px-4 hover:bg-gray-400 text-base"
                       onClick={() => setMenuOpen(false)}
                     >
                       My Profile
                     </Link>
                     <Link
                       href="/settings"
-                      className="block px-4 py-2 hover:bg-gray-400 text-sm"
+                      className="block px-4 py-2 hover:bg-gray-400 text-base"
                       onClick={() => setMenuOpen(false)}
                     >
                       Settings
@@ -263,7 +262,7 @@ export default function Navbar() {
                         handleLogout();
                         setMenuOpen(false);
                       }}
-                      className="text-left px-4 py-2 text-[#ef233c] hover:text-[#ff0a54] text-sm"
+                      className="text-left px-4 py-2 w-52 ml-4 mt-2 rounded-md  bg-[#ef233c] hover:bg-red-600 text-base cursor-pointer"
                     >
                       Logout
                     </button>
