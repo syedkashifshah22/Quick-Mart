@@ -403,10 +403,85 @@
     "title": "Ice Cream",
     "data": [
       {
-        "subtitle": "Blueberry Blast",
+        "subtitle": "Flavors",
         "subTitles": [
           {
-            "heading": "Blueberry Blast",
+            "heading": "Vanilla",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          },
+          {
+            "heading": "Chocolate",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          },
+          {
+            "heading": "Strawberry",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          },
+          {
+            "heading": "Mango",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          }
+        ]
+      },
+      {
+        "subtitle": "Cones",
+        "subTitles": [
+          {
+            "heading": "Sugar Cone",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          },
+          {
+            "heading": "Waffle Cone",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          },
+          {
+            "heading": "Chocolate Dipped",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          }
+        ]
+      },
+      {
+        "subtitle": "Sundaes",
+        "subTitles": [
+          {
+            "heading": "Hot Fudge",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          },
+          {
+            "heading": "Brownie",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          },
+          {
+            "heading": "Caramel",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          }
+        ]
+      },
+      {
+        "subtitle": "Family Packs",
+        "subTitles": [
+          {
+            "heading": "1 Liter Pack",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          },
+          {
+            "heading": "2 Liter Pack",
+            "description": "abs",
+            "imageUrl": "/assets/Products/Boys/product_13.png"
+          },
+          {
+            "heading": "Party Pack",
             "description": "abs",
             "imageUrl": "/assets/Products/Boys/product_13.png"
           }
@@ -418,12 +493,82 @@
     "title": "Food",
     "data": [
       {
-        "subtitle": "Blueberry Blast",
+        "subtitle": "Fast Food",
         "subTitles": [
           {
-            "heading": "Blueberry Blast",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Boys/product_13.png"
+            "heading": "Burgers",
+            "description": "Freshly grilled patties with crispy buns, loaded with your favorite toppings.",
+            "imageUrl": "/assets/Products/Foods/Fast-Food/burgers.jpg"
+          },
+          {
+            "heading": "Pizza",
+            "description": "Hot, cheesy pizza with a variety of toppings, baked to perfection.",
+            "imageUrl": "/assets/Products/Foods/Fast-Food/pizza.jpg"
+          },
+          {
+            "heading": "Fries",
+            "description": "Crispy, golden fries, seasoned just right for the perfect snack.",
+            "imageUrl": "/assets/Products/Foods/Fast-Food/fries.jpg"
+          }
+        ]
+      },
+      {
+        "subtitle": "Desi Food",
+        "subTitles": [
+          {
+            "heading": "Biryani",
+            "description": "Aromatic rice dish with marinated meat, cooked in traditional spices, a true flavor of the East.",
+            "imageUrl": "/assets/Products/Foods/Desi-Food/biryani.jpg"
+          },
+          {
+            "heading": "Korma",
+            "description": "A rich and creamy curry made with meat or vegetables, slow-cooked to perfection.",
+            "imageUrl": "/assets/Products/Foods/Desi-Food/korma.jpg"
+          },
+          {
+            "heading": "Nihari",
+            "description": "A traditional slow-cooked beef stew, flavored with rich spices, perfect with naan.",
+            "imageUrl": "/assets/Products/Foods/Desi-Food/nihari.jpg"
+          }
+        ]
+      },
+      {
+        "subtitle": "Chinese",
+        "subTitles": [
+          {
+            "heading": "Chow Mein",
+            "description": "Stir-fried noodles with fresh vegetables and your choice of protein, a classic Chinese dish.",
+            "imageUrl": "/assets/Products/Foods/Chinese/chow-mein.jpg"
+          },
+          {
+            "heading": "Manchurian",
+            "description": "Crispy fried meatballs in a spicy, tangy sauce, a favorite of Chinese cuisine.",
+            "imageUrl": "/assets/Products/Foods/Chinese/manchurian.jpg"
+          },
+          {
+            "heading": "Spring Rolls",
+            "description": "Crunchy rolls filled with vegetables or meat, served with a tangy dipping sauce.",
+            "imageUrl": "/assets/Products/Foods/Chinese/spring-rolls.jpg"
+          }
+        ]
+      },
+      {
+        "subtitle": "BBQ",
+        "subTitles": [
+          {
+            "heading": "Seekh Kabab",
+            "description": "Minced meat seasoned with spices, skewered and grilled to smoky perfection.",
+            "imageUrl": "/assets/Products/Foods/BBQ/seekh-kabab.jpg"
+          },
+          {
+            "heading": "Chicken Tikka",
+            "description": "Marinated chicken pieces cooked in a tandoor, full of rich, smoky flavors.",
+            "imageUrl": "/assets/Products/Foods/BBQ/chicken-tikka.jpg"
+          },
+          {
+            "heading": "Behari Kabab",
+            "description": "Tender, spiced beef kebabs, grilled to perfection with an authentic flavor.",
+            "imageUrl": "/assets/Products/Foods/BBQ/behari-kabab.jpg"
           }
         ]
       }

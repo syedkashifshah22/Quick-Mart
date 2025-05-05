@@ -330,19 +330,40 @@
         "items": [
           {
             "title": "Flavors",
-            "url": "/icecream/flavors"
+            "url": "/icecream/flavors",
+            "subItem": [
+              { "title": "Vanilla", "url": "/icecream/flavors/vanilla" },
+              { "title": "Chocolate", "url": "/icecream/flavors/chocolate" },
+              { "title": "Strawberry", "url": "/icecream/flavors/strawberry" },
+              { "title": "Mango", "url": "/icecream/flavors/mango" }
+            ]
           },
           {
             "title": "Cones",
-            "url": "/icecream/cones"
+            "url": "/icecream/cones",
+            "subItem": [
+              { "title": "Sugar Cone", "url": "/icecream/cones/sugar" },
+              { "title": "Waffle Cone", "url": "/icecream/cones/waffle" },
+              { "title": "Chocolate Dipped", "url": "/icecream/cones/chocolate-dipped" }
+            ]
           },
           {
             "title": "Sundaes",
-            "url": "/icecream/sundaes"
+            "url": "/icecream/sundaes",
+            "subItem": [
+              { "title": "Hot Fudge", "url": "/icecream/sundaes/hot-fudge" },
+              { "title": "Brownie", "url": "/icecream/sundaes/brownie" },
+              { "title": "Caramel", "url": "/icecream/sundaes/caramel" }
+            ]
           },
           {
             "title": "Family Packs",
-            "url": "/icecream/family-packs"
+            "url": "/icecream/family-packs",
+            "subItem": [
+              { "title": "1 Liter Pack", "url": "/icecream/family-packs/1liter" },
+              { "title": "2 Liter Pack", "url": "/icecream/family-packs/2liter" },
+              { "title": "Party Pack", "url": "/icecream/family-packs/party-pack" }
+            ]
           }
         ]
       },
@@ -351,22 +372,42 @@
         "items": [
           {
             "title": "Fast Food",
-            "url": "/food/fast-food"
+            "url": "/food/fast-food",
+            "subItem": [
+              { "title": "Burgers", "url": "/food/fast-food/burgers" },
+              { "title": "Pizza", "url": "/food/fast-food/pizza" },
+              { "title": "Fries", "url": "/food/fast-food/fries" }
+            ]
           },
           {
             "title": "Desi Food",
-            "url": "/food/desi"
+            "url": "/food/desi",
+            "subItem": [
+              { "title": "Biryani", "url": "/food/desi/biryani" },
+              { "title": "Korma", "url": "/food/desi/korma" },
+              { "title": "Nihari", "url": "/food/desi/nihari" }
+            ]
           },
           {
             "title": "Chinese",
-            "url": "/food/chinese"
+            "url": "/food/chinese",
+            "subItem": [
+              { "title": "Chow Mein", "url": "/food/chinese/chow-mein" },
+              { "title": "Manchurian", "url": "/food/chinese/manchurian" },
+              { "title": "Spring Rolls", "url": "/food/chinese/spring-rolls" }
+            ]
           },
           {
             "title": "BBQ",
-            "url": "/food/bbq"
+            "url": "/food/bbq",
+            "subItem": [
+              { "title": "Seekh Kabab", "url": "/food/bbq/seekh-kabab" },
+              { "title": "Chicken Tikka", "url": "/food/bbq/chicken-tikka" },
+              { "title": "Behari Kabab", "url": "/food/bbq/behari-kabab" }
+            ]
           }
         ]
-      }
+      }      
     ]
   },
   {
