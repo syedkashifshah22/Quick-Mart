@@ -31,64 +31,76 @@
         "subtitle": "Men",
         "subTitles": [
           {
-            "heading": "Elegant Evening Gown",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Boys/product_13.png"
+            "heading": "Formal Suit",
+            "description": "Sharp & classic 3-piece suit.",
+            "imageUrl": "/assets/Products/Dress/Men/formal-suit.jpg",
+            "price": "14,500 Rs"
           },
           {
-            "heading": "Elegant Evening Gown",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Boys/product_14.png"
+            "heading": "Casual Blazer",
+            "description": "Smart look for casual outings.",
+            "imageUrl": "/assets/Products/Dress/Men/casual-blazer.jpg",
+            "price": "7,200 Rs"
           },
           {
-            "heading": "Elegant Evening Gown",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Boys/product_15.png"
+            "heading": "Denim Jacket",
+            "description": "Trendy & durable denim style.",
+            "imageUrl": "/assets/Products/Dress/Men/denim-jacket.jpg",
+            "price": "5,500 Rs"
           },
           {
-            "heading": "Elegant Evening Gown",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Boys/product_16.png"
+            "heading": "Leather Jacket",
+            "description": "Bold leather for rugged charm.",
+            "imageUrl": "/assets/Products/Dress/Men/leather-jacket.png",
+            "price": "9,800 Rs"
           },
           {
-            "heading": "Elegant Evening Gown",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Boys/product_17.png"
+            "heading": "Checked Shirt",
+            "description": "Comfortable cotton check shirt.",
+            "imageUrl": "/assets/Products/Dress/Men/checked-shirt.jpg",
+            "price": "2,200 Rs"
           },
           {
-            "heading": "Elegant Evening Gown",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Boys/product_18.png"
+            "heading": "Polo T-shirt",
+            "description": "Cool & relaxed polo design.",
+            "imageUrl": "/assets/Products/Dress/Men/polo-t-shirt.jpg",
+            "price": "1,800 Rs"
           },
           {
-            "heading": "Elegant Evening Gown",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Boys/product_19.png"
+            "heading": "Slim Fit Jeans",
+            "description": "Modern slim fit denim.",
+            "imageUrl": "/assets/Products/Dress/Men/slim-fit-jeans.jpg",
+            "price": "3,400 Rs"
           },
           {
-            "heading": "Elegant Evening Gown",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Boys/product_20.png"
+            "heading": "Hoodie",
+            "description": "Cozy & stylish hoodie.",
+            "imageUrl": "/assets/Products/Dress/Men/hoodie.jpg",
+            "price": "2,900 Rs"
           },
           {
-            "heading": "Elegant Evening Gown",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Boys/product_21.png"
+            "heading": "Sweatshirt",
+            "description": "Soft cotton casual wear.",
+            "imageUrl": "/assets/Products/Dress/Men/sweatshirt.jpg",
+            "price": "2,500 Rs"
           },
           {
-            "heading": "Elegant Evening Gown",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Boys/product_22.png"
+            "heading": "Kurta Pajama",
+            "description": "Elegant traditional attire.",
+            "imageUrl": "/assets/Products/Dress/Men/kurta-pajama.jpg",
+            "price": "3,200 Rs"
           },
           {
-            "heading": "Elegant Evening Gown",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Boys/product_23.png"
+            "heading": "Sherwani",
+            "description": "Regal wedding outfit.",
+            "imageUrl": "/assets/Products/Dress/Men/sherwani.jpg",
+            "price": "18,000 Rs"
           },
           {
-            "heading": "Elegant Evening Gown",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Boys/product_24.png"
+            "heading": "Waistcoat",
+            "description": "Perfect for formal touch.",
+            "imageUrl": "/assets/Products/Dress/Men/waistcoat.jpg",
+            "price": "2,700 Rs"
           }
         ]
       },
@@ -96,99 +108,112 @@
         "subtitle": "Women",
         "subTitles": [
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_1.png"
+            "heading": "Party Wear Gown",
+            "description": "Elegant evening gown.",
+            "imageUrl": "/assets/Products/Dress/women/party-wear-gown.jpg",
+            "price": "4,900 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_2.png"
+            "heading": "Maxi Dress",
+            "description": "Elegant Crew Neck Bell Sleeve Pleated Modest Dress For Spring & Fall, Women's Clothing.",
+            "imageUrl": "/assets/Products/Dress/women/maxi-dress.jpg",
+            "price": "7,500 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_3.png"
+            "heading": "Saree",
+            "description": "Traditional & classy saree.",
+            "imageUrl": "/assets/Products/Dress/women/saree.jpg",
+            "price": "8,000 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_4.png"
+            "heading": "Kurta",
+            "description": "Kurta and Pants Set - Long Sleeve, Polyester Blend, Tribal Design, Crew Neck, Loose Fit.",
+            "imageUrl": "/assets/Products/Dress/women/kurta.jpg",
+            "price": "4,900 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_5.png"
+            "heading": "Lehenga Choli",
+            "description": "Festive lehenga set.",
+            "imageUrl": "/assets/Products/Dress/women/lehenga-choli.jpg",
+            "price": "41.905 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_6.png"
+            "heading": "Abaya",
+            "description": "Elegant full coverage dress.",
+            "imageUrl": "/assets/Products/Dress/women/abaya.jpg",
+            "price": "7,870 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_7.png"
+            "heading": "Jumpsuit",
+            "description": "Trendy & easy wear.",
+            "imageUrl": "/assets/Products/Dress/women/jumpsuit.jpg",
+            "price": "3,700 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_8.png"
+            "heading": "Co-Ord Set",
+            "description": "Stylish matching set.",
+            "imageUrl": "/assets/Products/Dress/women/co-ord-set.jpg",
+            "price": "4,100 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_9.png"
+            "heading": "Formal Blazer",
+            "description": "Elegant & Chic Gray Office Suit Set for Women - Double-Breasted Blazer with Shawl Collar & Slim-Fit Pants, Polyester/Spandex, Machine Washable - Perfect for Professional Settings.",
+            "imageUrl": "/assets/Products/Dress/women/formal-blazer.jpg",
+            "price": "11,140 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_10.png"
+            "heading": "A-Line Dress",
+            "description": "Flattering fit & flare.",
+            "imageUrl": "/assets/Products/Dress/women/a-line-dress.jpg",
+            "price": "4,270 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_11.png"
+            "heading": "Tank Top",
+            "description": "BELAROI Womens Plus Size Tank Tops Summer Sleeveless Scoop Neck Tunic Shirts Casual Loose T-Shirts Blouse.",
+            "imageUrl": "/assets/Products/Dress/women/tank-tops.jpg",
+            "price": "2,100 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_12.png"
+            "heading": "Printed T-shirt",
+            "description": "Plus-Size Ethnic Style Printed Round Neck T-Shirt, Casual And Comfortable Short-Sleeve Tee for Women, Plus-Size Clothing..",
+            "imageUrl": "/assets/Products/Dress/women/printed-t-shirt.jpg",
+            "price": "1,656 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_rt_1.png"
+            "heading": "Crop Top",
+            "description": "BERSK Women's Croptop.",
+            "imageUrl": "/assets/Products/Dress/women/crop-top.jpg",
+            "price": "850 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_rt_2.png"
+            "heading": "Hooded Jacket",
+            "description": "Women'S Fall/Winter Faux Fur Hooded Jacket, Polyester Solid Color Knit Fabric Outerwear, with Zipper and Polyester Lining.",
+            "imageUrl": "/assets/Products/Dress/women/hooded-jacket.jpg",
+            "price": "9,340 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_rt_3.png"
+            "heading": "Plaid Shirt",
+            "description": "DJT Checked Shirts for Women Long Sleeve Plaid Shirt X-Large Red Plaid.",
+            "imageUrl": "/assets/Products/Dress/women/plaid-shirt.jpg",
+            "price": "16,160 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/product_rt_4.png"
+            "heading": "Graphic Tee",
+            "description": "Women's Black Golden Heart & Butterfly Graphic Print T-Shirt - Short Sleeve Crew Neck Casual Top, Machine Washable All-Season Comfort Fit Tee, Ladies T-shirts, Everyday Fashion, Elegant Design, Durable Fabric.",
+            "imageUrl": "/assets/Products/Dress/women/graphic-tee.jpg",
+            "price": "1,900 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/t-shirt1.jpg"
+            "heading": "Basic Tee",
+            "description": "Everyday comfort wear.",
+            "imageUrl": "/assets/Products/Dress/women/basic-tee.jpg",
+            "price": "2,950 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/t-shirt2.jpg"
-          },
-          {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Girls/t-shirt3.jpg"
+            "heading": "Long Sleeve Top",
+            "description": "Soft cotton top.",
+            "imageUrl": "/assets/Products/Dress/women/long-sleeve-top.jpg",
+            "price": "8,950 Rs"
           }
         ]
       },
@@ -196,64 +221,76 @@
         "subtitle": "Children",
         "subTitles": [
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Children/product_25.png"
+            "heading": "Kids Party Frock",
+            "description": "Elegant Girls' Sleeveless Gown with Butterfly Bow - Beige Floral Party Dress for Weddings, Birthdays & Formal Events, Dresses for Girls.",
+            "imageUrl": "/assets/Products/Dress/Children/kids-party-frock.jpg",
+            "price": "4,680 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Children/product_26.png"
+            "heading": "Boys Formal Suit",
+            "description": "Boys' Spring and Autumn Long Sleeve Dress Suit Youngsters's Gentleman Dress Long Pants Suit Youngsters's Top Shirt Dress Four-piece Set Boys' Spring and Autumn Festival Dress Gentleman Party Dress Long Sleeve Suit.",
+            "imageUrl": "/assets/Products/Dress/Children/boys-formal-suit.jpg",
+            "price": "2,890 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Children/product_27.png"
+            "heading": "Girls Skirt Set",
+            "description": "Girls Bow Front Button Short Sleeve Blouse Top & Plaid Pleated Skirt Set Kids Summer Outdoor Clothes.",
+            "imageUrl": "/assets/Products/Dress/Children/girls-skirt-set.jpg",
+            "price": "3,300 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Children/product_28.png"
+            "heading": "Boys Hoodie",
+            "description": "Warm & comfy hoodie.",
+            "imageUrl": "/assets/Products/Dress/Children/boys-hoodie.jpg",
+            "price": "1,800 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Children/product_29.png"
+            "heading": "Girls Denim Jacket",
+            "description": "Trendy mini denim.",
+            "imageUrl": "/assets/Products/Dress/Children/product_29.jpg",
+            "price": "2,500 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Children/product_30.png"
+            "heading": "Boys T-shirt",
+            "description": "Soft cotton tee.",
+            "imageUrl": "/assets/Products/Dress/Children/product_30.jpg",
+            "price": "900 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Children/product_31.png"
+            "heading": "Girls Maxi Dress",
+            "description": "Lovely full-length dress.",
+            "imageUrl": "/assets/Products/Dress/Children/product_31.jpg",
+            "price": "3,400 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Children/product_32.png"
+            "heading": "Boys Cargo Pants",
+            "description": "Tough & stylish.",
+            "imageUrl": "/assets/Products/Dress/Children/product_32.jpg",
+            "price": "2,300 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Children/product_33.png"
+            "heading": "Girls Cardigan",
+            "description": "Warm & cozy knit.",
+            "imageUrl": "/assets/Products/Dress/Children/product_33.jpg",
+            "price": "1,700 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Children/product_34.png"
+            "heading": "Boys Jeans",
+            "description": "Durable & comfy.",
+            "imageUrl": "/assets/Products/Dress/Children/product_34.jpg",
+            "price": "1,900 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Children/product_35.png"
+            "heading": "Girls Tunic",
+            "description": "Cute printed tunic.",
+            "imageUrl": "/assets/Products/Dress/Children/product_35.jpg",
+            "price": "1,500 Rs"
           },
           {
-            "heading": "Classic Leather Watch",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Dress/Children/product_36.png"
+            "heading": "Boys Kurta Set",
+            "description": "Traditional mini attire.",
+            "imageUrl": "/assets/Products/Dress/Children/product_36.jpg",
+            "price": "2,800 Rs"
           }
         ]
       }
@@ -408,127 +445,127 @@
           {
             "heading": "Vanilla",
             "description": "Classic creamy vanilla delight.",
-            "price": "150 RS",
+            "price": "150 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
           },
           {
             "heading": "Chocolate",
             "description": "Rich, creamy chocolate goodness.",
-            "price": "160 RS",
+            "price": "160 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/chocolate.jpg"
           },
           {
             "heading": "Strawberry",
             "description": "Fresh, fruity strawberry flavor.",
-            "price": "150 RS",
+            "price": "150 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/strawberry.jpg"
           },
           {
             "heading": "Mango",
             "description": "Tropical mango flavor, pure bliss.",
-            "price": "160 RS",
+            "price": "160 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/mango.jpg"
           },
           {
             "heading": "Pistachio",
             "description": "Creamy pistachio with a nutty twist.",
-            "price": "180 RS",
+            "price": "180 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/pistachio.jpg"
           },
           {
             "heading": "Mint Chocolate Chip",
             "description": "Refreshing mint with crunchy chocolate chips.",
-            "price": "170 RS",
+            "price": "170 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/mint-chocolate-chip.jpg"
           },
           {
             "heading": "Cookies and Cream",
             "description": "Creamy with crunchy cookie bits.",
-            "price": "170 RS",
+            "price": "170 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/cookies-cream.jpg"
           },
           {
             "heading": "Coffee",
             "description": "Bold coffee flavor with a creamy finish.",
-            "price": "160 RS",
+            "price": "160 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/coffee.jpg"
           },
           {
             "heading": "Rocky Road",
             "description": "Chocolate with marshmallows & nuts.",
-            "price": "180 RS",
+            "price": "180 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/rocky-road.jpg"
           },
           {
             "heading": "Butterscotch",
             "description": "Buttery, caramel-flavored indulgence.",
-            "price": "170 RS",
+            "price": "170 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/butterscotch.jpg"
           },
           {
             "heading": "Caramel",
             "description": "Smooth, rich caramel flavor.",
-            "price": "160 RS",
+            "price": "160 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/caramel.jpg"
           },
           {
             "heading": "Neapolitan",
             "description": "Classic mix of vanilla, chocolate & strawberry.",
-            "price": "180 RS",
+            "price": "180 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/neapolitan.jpg"
           },
           {
             "heading": "Tiramisu",
             "description": "Coffee-flavored Italian dessert ice cream.",
-            "price": "190 RS",
+            "price": "190 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/tiramisu.jpg"
           },
           {
             "heading": "Cherry Garcia",
             "description": "Cherries & chocolate flakes in creamy ice cream.",
-            "price": "200 RS",
+            "price": "200 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/cherry-garcia.jpg"
           },
           {
             "heading": "Almond",
             "description": "Creamy with crunchy almond pieces.",
-            "price": "180 RS",
+            "price": "180 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/almond.jpg"
           },
           {
             "heading": "Coconut",
             "description": "Rich coconut flavor in creamy ice cream.",
-            "price": "170 RS",
+            "price": "170 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/coconut.jpg"
           },
           {
             "heading": "Peanut Butter Cup",
             "description": "Peanut butter & chocolate in every scoop.",
-            "price": "190 RS",
+            "price": "190 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/peanut-butter-cup.jpg"
           },
           {
             "heading": "Banana",
             "description": "Fruity, creamy banana flavor.",
-            "price": "160 RS",
+            "price": "160 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/banana.jpg"
           },
           {
             "heading": "Lemon Sorbet",
             "description": "Tangy & refreshing lemon sorbet.",
-            "price": "150 RS",
+            "price": "150 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/lemon-sorbet.jpg"
           },
           {
             "heading": "Green Tea",
             "description": "Delicate matcha green tea flavor.",
-            "price": "180 RS",
+            "price": "180 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/green-tea.jpg"
           },
           {
             "heading": "Pista",
             "description": "Rich & nutty pistachio indulgence.",
-            "price": "190 RS",
+            "price": "190 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Flavors/pista.jpg"
           }          
         ]
@@ -539,19 +576,19 @@
           {
             "heading": "Sugar Cone",
             "description": "Crispy & sweet traditional cone.",
-            "price": "50 RS",
+            "price": "50 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Cones/sugar-cone1.jpg"
           },
           {
             "heading": "Waffle Cone",
             "description": "Thick crunchy waffle cone.",
-            "price": "70 RS",
+            "price": "70 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Cones/waffle-cone.jpg"
           },
           {
             "heading": "Chocolate Dipped",
             "description": "Waffle cone dipped in chocolate.",
-            "price": "80 RS",
+            "price": "80 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Cones/chocolate-dipped.jpg"
           }
         ]
@@ -562,25 +599,25 @@
           {
             "heading": "Hot Fudge",
             "description": "Warm fudge over cold ice cream.",
-            "price": "220 RS",
+            "price": "220 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Sundaes/hot-fudge.jpg"
           },
           {
             "heading": "Banana Split",
             "description": "Classic split with fruits & syrup.",
-            "price": "250 RS",
+            "price": "250 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Sundaes/banana-split.jpg"
           },
           {
             "heading": "Brownie",
             "description": "Brownie topped with ice cream.",
-            "price": "240 RS",
+            "price": "240 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Sundaes/brownie.jpg"
           },
           {
             "heading": "Caramel",
             "description": "Sweet caramel drizzle sundae.",
-            "price": "220 RS",
+            "price": "220 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Sundaes/caramel.jpg"
           }
         ]
@@ -591,31 +628,31 @@
           {
             "heading": "Paper Cups",
             "description": "Eco-friendly & lightweight cups.",
-            "price": "10 RS",
+            "price": "10 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Cups/paper-cups.jpg"
           },
           {
             "heading": "Plastic Cups",
             "description": "Reusable durable plastic cups.",
-            "price": "15 RS",
+            "price": "15 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Cups/plastic-cups.jpg"
           },
           {
             "heading": "Foam Cups",
             "description": "Keeps ice cream cold longer.",
-            "price": "12 RS",
+            "price": "12 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Cups/foam-cups.jpg"
           },
           {
             "heading": "Glass Cups",
             "description": "Elegant serving glass cups.",
-            "price": "80 RS",
+            "price": "80 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Cups/glass-cups.jpg"
           },
           {
             "heading": "Edible Cups",
             "description": "Crunchy cups you can eat!",
-            "price": "50 RS",
+            "price": "50 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Cups/edible-cups.jpg"
           }
         ]
@@ -626,25 +663,25 @@
           {
             "heading": "Wooden",
             "description": "Classic wooden ice cream stick.",
-            "price": "5 RS",
+            "price": "5 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Sticks/wooden.jpg"
           },
           {
             "heading": "Plastic",
             "description": "Strong reusable plastic stick.",
-            "price": "10 RS",
+            "price": "10 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Sticks/plastic.jpg"
           },
           {
             "heading": "Chocolate-Coated",
             "description": "Yummy choco-covered stick.",
-            "price": "20 RS",
+            "price": "20 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Sticks/chocolate-coated.png"
           },
           {
             "heading": "Edible",
             "description": "Innovative eatable stick.",
-            "price": "15 RS",
+            "price": "15 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Sticks/edible.png"
           }
         ]
@@ -655,37 +692,37 @@
           {
             "heading": "Khulfa",
             "description": "Rich & nutty traditional flavour.",
-            "price": "320 RS",
+            "price": "320 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Brick-Pack/khulfa.png"
           },
           {
             "heading": "Vanilla",
             "description": "Classic creamy vanilla brick.",
-            "price": "300 RS",
+            "price": "300 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Brick-Pack/vanilla.png"
           },
           {
             "heading": "Mango",
             "description": "Fruity mango flavour brick.",
-            "price": "320 RS",
+            "price": "320 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Brick-Pack/mango.png"
           },
           {
             "heading": "Cookies & Cream",
             "description": "Crunchy cookies blend brick.",
-            "price": "340 RS",
+            "price": "340 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Brick-Pack/cookies-cream.png"
           },
           {
             "heading": "Praline",
             "description": "Caramel & nutty praline taste.",
-            "price": "350 RS",
+            "price": "350 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Brick-Pack/praline.png"
           },
           {
             "heading": "Chocolate Chip",
             "description": "Loaded with choco chips.",
-            "price": "340 RS",
+            "price": "340 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Brick-Pack/chocolate-chip.jpg"
           }
         ]
@@ -696,19 +733,19 @@
           {
             "heading": "1 Liter Pack",
             "description": "Perfect for small gatherings.",
-            "price": "300 RS",
+            "price": "300 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Family-Packs/1-liter-pack.png"
           },
           {
             "heading": "2 Liter Pack",
             "description": "Ideal for parties & events.",
-            "price": "580 RS",
+            "price": "580 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Family-Packs/2-liter-pack.png"
           },
           {
             "heading": "Party Pack",
             "description": "Big pack for celebrations.",
-            "price": "850 RS",
+            "price": "850 Rs",
             "imageUrl": "/assets/Products/Ice-Cream/Family-Packs/party-pack.png"
           }
         ]
@@ -724,19 +761,19 @@
           {
             "heading": "Burgers",
             "description": "Grilled patties with crispy buns and tasty toppings.",
-            "price": "950 RS",
+            "price": "950 Rs",
             "imageUrl": "/assets/Products/Foods/Fast-Food/burgers.jpg"
           },
           {
             "heading": "Pizza",
             "description": "Cheesy pizza with a variety of toppings.",
-            "price": "1000 RS",
+            "price": "1000 Rs",
             "imageUrl": "/assets/Products/Foods/Fast-Food/pizza.jpg"
           },
           {
             "heading": "Fries",
             "description": "Crispy, golden fries, seasoned perfectly.",
-            "price": "500 RS",
+            "price": "500 Rs",
             "imageUrl": "/assets/Products/Foods/Fast-Food/fries.jpg"
           }
         ]
@@ -747,19 +784,19 @@
           {
             "heading": "Biryani",
             "description": "Rice dish with marinated meat and spices.",
-            "price": "1200 RS",
+            "price": "1200 Rs",
             "imageUrl": "/assets/Products/Foods/Desi-Food/biryani.jpg"
           },
           {
             "heading": "Korma",
             "description": "Creamy curry made with meat or veggies.",
-            "price": "1100 RS",
+            "price": "1100 Rs",
             "imageUrl": "/assets/Products/Foods/Desi-Food/korma.jpg"
           },
           {
             "heading": "Nihari",
             "description": "Slow-cooked beef stew with rich spices.",
-            "price": "1300 RS",
+            "price": "1300 Rs",
             "imageUrl": "/assets/Products/Foods/Desi-Food/nihari.jpg"
           }
         ]
@@ -770,19 +807,19 @@
           {
             "heading": "Chow Mein",
             "description": "Stir-fried noodles with veggies and protein.",
-            "price": "700 RS",
+            "price": "700 Rs",
             "imageUrl": "/assets/Products/Foods/Chinese/chow-mein.jpg"
           },
           {
             "heading": "Manchurian",
             "description": "Crispy meatballs in a spicy sauce.",
-            "price": "800 RS",
+            "price": "800 Rs",
             "imageUrl": "/assets/Products/Foods/Chinese/manchurian.jpg"
           },
           {
             "heading": "Spring Rolls",
             "description": "Crunchy rolls filled with veggies or meat.",
-            "price": "400 RS",
+            "price": "400 Rs",
             "imageUrl": "/assets/Products/Foods/Chinese/spring-rolls.jpg"
           }
         ]
@@ -793,19 +830,19 @@
           {
             "heading": "Seekh Kabab",
             "description": "Spiced minced meat grilled on skewers.",
-            "price": "1200 RS",
+            "price": "1200 Rs",
             "imageUrl": "/assets/Products/Foods/BBQ/seekh-kabab.jpg"
           },
           {
             "heading": "Chicken Tikka",
             "description": "Marinated chicken cooked in a tandoor.",
-            "price": "1100 RS",
+            "price": "1100 Rs",
             "imageUrl": "/assets/Products/Foods/BBQ/chicken-tikka.jpg"
           },
           {
             "heading": "Behari Kabab",
             "description": "Spiced beef kebabs grilled to perfection.",
-            "price": "1500 RS",
+            "price": "1500 Rs",
             "imageUrl": "/assets/Products/Foods/BBQ/behari-kabab.jpg"
           }
         ]
