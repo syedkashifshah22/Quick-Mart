@@ -402,176 +402,313 @@
   "Ice Cream": {
     "title": "Ice Cream",
     "data": [
+  {
+    "subtitle": "Flavors",
+    "subTitles": [
       {
-        "subtitle": "Flavors",
-        "subTitles": [
-          {
-            "heading": "Vanilla",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
-          },
-          {
-            "heading": "Chocolate",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/chocolate.jpg"
-          },
-          {
-            "heading": "Strawberry",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/strawberry.jpg"
-          },
-          {
-            "heading": "Mango",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/mango.jpg"
-          }
-        ]
+        "heading": "Vanilla",
+        "description": "Smooth & classic vanilla delight.",
+        "price": "150 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
       },
       {
-        "subtitle": "Cones",
-        "subTitles": [
-          {
-            "heading": "Sugar Cone",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
-          },
-          {
-            "heading": "Waffle Cone",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
-          },
-          {
-            "heading": "Chocolate Dipped",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
-          }
-        ]
+        "heading": "Chocolate",
+        "description": "Rich and creamy chocolate bliss.",
+        "price": "160 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Flavors/chocolate.jpg"
       },
       {
-        "subtitle": "Sundaes",
-        "subTitles": [
-          {
-            "heading": "Hot Fudge",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
-          },
-          {
-            "heading": "Brownie",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
-          },
-          {
-            "heading": "Caramel",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
-          }
-        ]
+        "heading": "Strawberry",
+        "description": "Fruity & fresh strawberry flavor.",
+        "price": "150 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Flavors/strawberry.jpg"
       },
       {
-        "subtitle": "Family Packs",
-        "subTitles": [
-          {
-            "heading": "1 Liter Pack",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
-          },
-          {
-            "heading": "2 Liter Pack",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
-          },
-          {
-            "heading": "Party Pack",
-            "description": "abs",
-            "imageUrl": "/assets/Products/Ice-Cream/Flavors/vanilla.jpg"
-          }
-        ]
+        "heading": "Mango",
+        "description": "Juicy mango burst in every bite.",
+        "price": "160 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Flavors/mango.jpg"
       }
     ]
+  },
+  {
+    "subtitle": "Cones",
+    "subTitles": [
+      {
+        "heading": "Sugar Cone",
+        "description": "Crispy & sweet traditional cone.",
+        "price": "50 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Cones/sugar-cone1.jpg"
+      },
+      {
+        "heading": "Waffle Cone",
+        "description": "Thick crunchy waffle cone.",
+        "price": "70 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Cones/waffle-cone.jpg"
+      },
+      {
+        "heading": "Chocolate Dipped",
+        "description": "Waffle cone dipped in chocolate.",
+        "price": "80 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Cones/chocolate-dipped.jpg"
+      }
+    ]
+  },
+  {
+    "subtitle": "Sundaes",
+    "subTitles": [
+      {
+        "heading": "Hot Fudge",
+        "description": "Warm fudge over cold ice cream.",
+        "price": "220 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Sundaes/hot-fudge.jpg"
+      },
+      {
+        "heading": "Banana Split",
+        "description": "Classic split with fruits & syrup.",
+        "price": "250 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Sundaes/banana-split.jpg"
+      },
+      {
+        "heading": "Brownie",
+        "description": "Brownie topped with ice cream.",
+        "price": "240 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Sundaes/brownie.jpg"
+      },
+      {
+        "heading": "Caramel",
+        "description": "Sweet caramel drizzle sundae.",
+        "price": "220 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Sundaes/caramel.jpg"
+      }
+    ]
+  },
+  {
+    "subtitle": "Cups",
+    "subTitles": [
+      {
+        "heading": "Paper Cups",
+        "description": "Eco-friendly & lightweight cups.",
+        "price": "10 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Cups/paper-cups.jpg"
+      },
+      {
+        "heading": "Plastic Cups",
+        "description": "Reusable durable plastic cups.",
+        "price": "15 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Cups/plastic-cups.jpg"
+      },
+      {
+        "heading": "Foam Cups",
+        "description": "Keeps ice cream cold longer.",
+        "price": "12 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Cups/foam-cups.jpg"
+      },
+      {
+        "heading": "Glass Cups",
+        "description": "Elegant serving glass cups.",
+        "price": "80 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Cups/glass-cups.jpg"
+      },
+      {
+        "heading": "Edible Cups",
+        "description": "Crunchy cups you can eat!",
+        "price": "50 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Cups/edible-cups.jpg"
+      }
+    ]
+  },
+  {
+    "subtitle": "Sticks",
+    "subTitles": [
+      {
+        "heading": "Wooden",
+        "description": "Classic wooden ice cream stick.",
+        "price": "5 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Sticks/wooden.jpg"
+      },
+      {
+        "heading": "Plastic",
+        "description": "Strong reusable plastic stick.",
+        "price": "10 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Sticks/plastic.jpg"
+      },
+      {
+        "heading": "Chocolate-Coated",
+        "description": "Yummy choco-covered stick.",
+        "price": "20 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Sticks/chocolate-coated.png"
+      },
+      {
+        "heading": "Edible",
+        "description": "Innovative eatable stick.",
+        "price": "15 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Sticks/edible.png"
+      }
+    ]
+  },
+  {
+    "subtitle": "Brick Pack",
+    "subTitles": [
+      {
+        "heading": "Khulfa",
+        "description": "Rich & nutty traditional flavour.",
+        "price": "320 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Brick-Pack/khulfa.png"
+      },
+      {
+        "heading": "Vanilla",
+        "description": "Classic creamy vanilla brick.",
+        "price": "300 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Brick-Pack/vanilla.png"
+      },
+      {
+        "heading": "Mango",
+        "description": "Fruity mango flavour brick.",
+        "price": "320 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Brick-Pack/mango.png"
+      },
+      {
+        "heading": "Cookies & Cream",
+        "description": "Crunchy cookies blend brick.",
+        "price": "340 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Brick-Pack/cookies-cream.png"
+      },
+      {
+        "heading": "Praline",
+        "description": "Caramel & nutty praline taste.",
+        "price": "350 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Brick-Pack/praline.png"
+      },
+      {
+        "heading": "Chocolate Chip",
+        "description": "Loaded with choco chips.",
+        "price": "340 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Brick-Pack/chocolate-chip.jpg"
+      }
+    ]
+  },
+  {
+    "subtitle": "Family Packs",
+    "subTitles": [
+      {
+        "heading": "1 Liter Pack",
+        "description": "Perfect for small gatherings.",
+        "price": "300 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Family-Packs/1-liter-pack.png"
+      },
+      {
+        "heading": "2 Liter Pack",
+        "description": "Ideal for parties & events.",
+        "price": "580 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Family-Packs/2-liter-pack.png"
+      },
+      {
+        "heading": "Party Pack",
+        "description": "Big pack for celebrations.",
+        "price": "850 RS",
+        "imageUrl": "/assets/Products/Ice-Cream/Family-Packs/party-pack.png"
+      }
+    ]
+  }
+]
+
   },
   "Food": {
     "title": "Food",
     "data": [
-      {
-        "subtitle": "Fast Food",
-        "subTitles": [
-          {
-            "heading": "Burgers",
-            "description": "Freshly grilled patties with crispy buns, loaded with your favorite toppings.",
-            "imageUrl": "/assets/Products/Foods/Fast-Food/burgers.jpg"
-          },
-          {
-            "heading": "Pizza",
-            "description": "Hot, cheesy pizza with a variety of toppings, baked to perfection.",
-            "imageUrl": "/assets/Products/Foods/Fast-Food/pizza.jpg"
-          },
-          {
-            "heading": "Fries",
-            "description": "Crispy, golden fries, seasoned just right for the perfect snack.",
-            "imageUrl": "/assets/Products/Foods/Fast-Food/fries.jpg"
-          }
-        ]
-      },
-      {
-        "subtitle": "Desi Food",
-        "subTitles": [
-          {
-            "heading": "Biryani",
-            "description": "Aromatic rice dish with marinated meat, cooked in traditional spices, a true flavor of the East.",
-            "imageUrl": "/assets/Products/Foods/Desi-Food/biryani.jpg"
-          },
-          {
-            "heading": "Korma",
-            "description": "A rich and creamy curry made with meat or vegetables, slow-cooked to perfection.",
-            "imageUrl": "/assets/Products/Foods/Desi-Food/korma.jpg"
-          },
-          {
-            "heading": "Nihari",
-            "description": "A traditional slow-cooked beef stew, flavored with rich spices, perfect with naan.",
-            "imageUrl": "/assets/Products/Foods/Desi-Food/nihari.jpg"
-          }
-        ]
-      },
-      {
-        "subtitle": "Chinese",
-        "subTitles": [
-          {
-            "heading": "Chow Mein",
-            "description": "Stir-fried noodles with fresh vegetables and your choice of protein, a classic Chinese dish.",
-            "imageUrl": "/assets/Products/Foods/Chinese/chow-mein.jpg"
-          },
-          {
-            "heading": "Manchurian",
-            "description": "Crispy fried meatballs in a spicy, tangy sauce, a favorite of Chinese cuisine.",
-            "imageUrl": "/assets/Products/Foods/Chinese/manchurian.jpg"
-          },
-          {
-            "heading": "Spring Rolls",
-            "description": "Crunchy rolls filled with vegetables or meat, served with a tangy dipping sauce.",
-            "imageUrl": "/assets/Products/Foods/Chinese/spring-rolls.jpg"
-          }
-        ]
-      },
-      {
-        "subtitle": "BBQ",
-        "subTitles": [
-          {
-            "heading": "Seekh Kabab",
-            "description": "Minced meat seasoned with spices, skewered and grilled to smoky perfection.",
-            "imageUrl": "/assets/Products/Foods/BBQ/seekh-kabab.jpg"
-          },
-          {
-            "heading": "Chicken Tikka",
-            "description": "Marinated chicken pieces cooked in a tandoor, full of rich, smoky flavors.",
-            "imageUrl": "/assets/Products/Foods/BBQ/chicken-tikka.jpg"
-          },
-          {
-            "heading": "Behari Kabab",
-            "description": "Tender, spiced beef kebabs, grilled to perfection with an authentic flavor.",
-            "imageUrl": "/assets/Products/Foods/BBQ/behari-kabab.jpg"
-          }
-        ]
-      }
-    ]
+    {
+      "subtitle": "Fast Food",
+      "subTitles": [
+        {
+          "heading": "Burgers",
+          "description": "Grilled patties with crispy buns and tasty toppings.",
+          "price": "950 RS",
+          "imageUrl": "/assets/Products/Foods/Fast-Food/burgers.jpg"
+        },
+        {
+          "heading": "Pizza",
+          "description": "Cheesy pizza with a variety of toppings.",
+          "price": "1000 RS",
+          "imageUrl": "/assets/Products/Foods/Fast-Food/pizza.jpg"
+        },
+        {
+          "heading": "Fries",
+          "description": "Crispy, golden fries, seasoned perfectly.",
+          "price": "500 RS",
+          "imageUrl": "/assets/Products/Foods/Fast-Food/fries.jpg"
+        }
+      ]
+    },
+    {
+      "subtitle": "Desi Food",
+      "subTitles": [
+        {
+          "heading": "Biryani",
+          "description": "Rice dish with marinated meat and spices.",
+          "price": "1200 RS",
+          "imageUrl": "/assets/Products/Foods/Desi-Food/biryani.jpg"
+        },
+        {
+          "heading": "Korma",
+          "description": "Creamy curry made with meat or veggies.",
+          "price": "1100 RS",
+          "imageUrl": "/assets/Products/Foods/Desi-Food/korma.jpg"
+        },
+        {
+          "heading": "Nihari",
+          "description": "Slow-cooked beef stew with rich spices.",
+          "price": "1300 RS",
+          "imageUrl": "/assets/Products/Foods/Desi-Food/nihari.jpg"
+        }
+      ]
+    },
+    {
+      "subtitle": "Chinese",
+      "subTitles": [
+        {
+          "heading": "Chow Mein",
+          "description": "Stir-fried noodles with veggies and protein.",
+          "price": "700 RS",
+          "imageUrl": "/assets/Products/Foods/Chinese/chow-mein.jpg"
+        },
+        {
+          "heading": "Manchurian",
+          "description": "Crispy meatballs in a spicy sauce.",
+          "price": "800 RS",
+          "imageUrl": "/assets/Products/Foods/Chinese/manchurian.jpg"
+        },
+        {
+          "heading": "Spring Rolls",
+          "description": "Crunchy rolls filled with veggies or meat.",
+          "price": "400 RS",
+          "imageUrl": "/assets/Products/Foods/Chinese/spring-rolls.jpg"
+        }
+      ]
+    },
+    {
+      "subtitle": "BBQ",
+      "subTitles": [
+        {
+          "heading": "Seekh Kabab",
+          "description": "Spiced minced meat grilled on skewers.",
+          "price": "1200 RS",
+          "imageUrl": "/assets/Products/Foods/BBQ/seekh-kabab.jpg"
+        },
+        {
+          "heading": "Chicken Tikka",
+          "description": "Marinated chicken cooked in a tandoor.",
+          "price": "1100 RS",
+          "imageUrl": "/assets/Products/Foods/BBQ/chicken-tikka.jpg"
+        },
+        {
+          "heading": "Behari Kabab",
+          "description": "Spiced beef kebabs grilled to perfection.",
+          "price": "1500 RS",
+          "imageUrl": "/assets/Products/Foods/BBQ/behari-kabab.jpg"
+        }
+      ]
+    }
+  ]
   }
 }

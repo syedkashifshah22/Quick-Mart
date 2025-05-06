@@ -38,7 +38,7 @@ export default function ProductsHome() {
 
   if (activeCategory === "All") {
     filteredProducts = categories.map(
-      (cat) => productData[cat as ProductCategory] as CategoryData
+      (cat) => productData[cat as ProductCategory] as unknown as CategoryData
     );
   } else {
     const categoryData =
