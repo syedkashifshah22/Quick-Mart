@@ -4,7 +4,7 @@ export default function AdminDashboardLayout({ children }: { children: React.Rea
     return (
       <div className="flex">
         <Sidebar />
-        <main className="flex-1">{children}</main>
+        <main className="ml-64 p-6 w-full">{children}</main>
       </div>
     );
   }

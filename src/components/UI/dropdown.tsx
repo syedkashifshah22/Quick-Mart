@@ -35,7 +35,7 @@ export default function Dropdown() {
   }, []);
 
   return (
-    <div ref={dropdownRef} className="relative flex flex-col md:flex-row items-start">
+    <div ref={dropdownRef} className="relative flex flex-col md:flex-row items-start space-y-4 md:space-y-0">
       {userNavbarItems.map((category: Category, categoryIndex: number) => (
         <div
           key={categoryIndex}
@@ -63,7 +63,7 @@ export default function Dropdown() {
           )}
 
           {openCategoryIndex === categoryIndex && category.titleItems && (
-            <div className="absolute top-8 left-0 w-56 bg-white text-gray-800 rounded-md z-50 shadow-lg">
+            <div className="absolute top-6 left-0 w-56 bg-white text-gray-800 rounded-md z-50 shadow-lg">
               {category.titleItems.map((titleItem, titleIndex) => (
                 <div
                   key={titleIndex}
@@ -92,7 +92,7 @@ export default function Dropdown() {
                   {activeTitleItem[categoryIndex] === titleIndex &&
                     titleItem.items &&
                     titleItem.items.length > 0 && (
-                      <div className="absolute top-0 left-full w-56 bg-white text-gray-800 rounded-md z-50 shadow-lg">
+                      <div className="absolute top-0 left-54 w-56 bg-white text-gray-800 rounded-md z-50 shadow-lg">
                         {titleItem.items.map((item, itemIndex) => (
                           <div
                             key={itemIndex}
@@ -134,7 +134,7 @@ export default function Dropdown() {
                             {activeItem[`${categoryIndex}-${titleIndex}`] === itemIndex &&
                               item.subItem &&
                               item.subItem.length > 0 && (
-                                <div className="absolute top-0 left-full w-48 bg-white rounded-md z-50 shadow-lg">
+                                <div className="absolute top-0 left-54 w-48 bg-white rounded-md z-50 shadow-lg">
                                   {item.subItem.map((sub, subIndex) => (
                                     <Link
                                       key={subIndex}

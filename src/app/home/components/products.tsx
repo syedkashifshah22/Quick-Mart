@@ -1,166 +1,223 @@
 "use client";
-import React, { useState } from "react";
-import productData from "@/utils/productItems.json";
-import Cards from "@/components/UI/cards";
 
-interface ProductDetail {
-  heading: string;
-  description: string;
-  imageUrl: string;
-}
+import { useEffect, useState } from "react";
+import { getAllProducts } from "@/app/lib/products";
+import { doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { db } from "@/app/lib/firebase";
+import { FaStar } from "react-icons/fa";
+import Image from "next/image";
 
-interface ProductItem {
-  subtitle: string;
-  subTitles: ProductDetail[];
-}
-
-interface CategoryData {
+interface Product {
+  id: string;
   title: string;
-  data: ProductItem[];
+  description: string;
+  price: number;
+  imageURL: string;
+  category?: string;
+  subcategory?: string;
+  ratings?: number[];
 }
 
-type ProductCategory = keyof typeof productData;
+function StarRating({
+  ratings = [],
+  productId,
+}: {
+  ratings?: number[];
+  productId: string;
+}) {
+  const [hovered, setHovered] = useState<number | null>(null);
+  const [selected, setSelected] = useState<number | null>(null);
+  const [showPercent, setShowPercent] = useState(false);
 
-export default function ProductsHome() {
-  const categories = Object.keys(productData);
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [activeSubCategory, setActiveSubCategory] = useState<string | null>(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const average =
+    ratings.length > 0
+      ? ratings.reduce((a, b) => a + b, 0) / ratings.length
+      : 0;
 
-  const handleCategoryClick = (category: string) => {
-    setActiveCategory(category);
-    setActiveSubCategory(null);
-    setCurrentPage(1);
-  };
+  const finalValue = selected ?? average;
+  const percentage = Math.round((finalValue / 5) * 100);
 
-  let filteredProducts: CategoryData[] = [];
-
-  if (activeCategory === "All") {
-    filteredProducts = categories.map(
-      (cat) => productData[cat as ProductCategory] as unknown as CategoryData
-    );
-  } else {
-    const categoryData =
-      productData[activeCategory as ProductCategory] as CategoryData;
-    if (activeSubCategory) {
-      filteredProducts = [
-        {
-          ...categoryData,
-          data: categoryData.data.filter(
-            (item) => item.subtitle === activeSubCategory
-          ),
-        },
-      ];
-    } else {
-      filteredProducts = [categoryData];
+  const handleClick = async (rating: number) => {
+    setSelected(rating);
+    setShowPercent(true);
+    try {
+      const productRef = doc(db, "products", productId);
+      await updateDoc(productRef, {
+        ratings: arrayUnion(rating),
+      });
+    } catch (error) {
+      console.error("Failed to submit rating:", error);
     }
-  }
-
-  const allCards = filteredProducts.flatMap((category) =>
-    category.data.flatMap((item) =>
-      item.subTitles.map((detail) => ({
-        categoryTitle: category.title,
-        subtitle: item.subtitle,
-        detail,
-      }))
-    )
-  );
-
-  const totalPages = Math.ceil(allCards.length / itemsPerPage);
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentPageCards = allCards.slice(startIndex, startIndex + itemsPerPage);
-
-  const cardsForUI: CategoryData[] = [
-    {
-      title: activeCategory,
-      data: [
-        {
-          subtitle: activeSubCategory || "All",
-          subTitles: currentPageCards.map((c) => c.detail),
-        },
-      ],
-    },
-  ];
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
   };
 
   return (
-    <div className="py-8">
-      <h1 className="text-5xl md:text-7xl text-center py-14">Products Categories</h1>
+    <div className="flex items-center gap-1">
+      {[1, 2, 3, 4, 5].map((i) => (
+        <FaStar
+          key={i}
+          onClick={() => handleClick(i)}
+          onMouseEnter={() => setHovered(i)}
+          onMouseLeave={() => setHovered(null)}
+          className={`cursor-pointer transition ${
+            (hovered ?? selected ?? average) >= i
+              ? "text-yellow-400"
+              : "text-gray-300"
+          }`}
+        />
+      ))}
+      {showPercent && (
+        <span className="text-sm text-gray-600 ml-1">({percentage}%)</span>
+      )}
+    </div>
+  );
+}
 
-      <div className="flex justify-center flex-wrap gap-6 mb-6">
-        <button
-          onClick={() => handleCategoryClick("All")}
-          className={`px-4 py-2 rounded ${
-            activeCategory === "All"
-              ? "bg-gray-900 text-white"
-              : "bg-gray-200 text-gray-700"
-          } cursor-pointer`}
-        >
-          All
-        </button>
-        {categories.map((category) => (
+export default function ProductsHome() {
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [filtered, setFiltered] = useState<Product[]>([]);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeSubcategory, setActiveSubcategory] = useState("All");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const products = await getAllProducts();
+      setAllProducts(products);
+      setFiltered(products);
+    };
+    fetchData();
+  }, []);
+
+  const uniqueCategories = Array.from(
+    new Set(
+      allProducts
+        .map((p) => p.category)
+        .filter((cat): cat is string => typeof cat === "string")
+    )
+  );
+
+  const subcategories =
+    activeCategory !== "All"
+      ? Array.from(
+          new Set(
+            allProducts
+              .filter((p) => p.category === activeCategory)
+              .map((p) => p.subcategory)
+              .filter((sub): sub is string => typeof sub === "string")
+          )
+        )
+      : [];
+
+  const handleCategoryClick = (category: string) => {
+    setActiveCategory(category);
+    setActiveSubcategory("All");
+    setCurrentPage(1);
+    filterProducts(category, "All");
+  };
+
+  const handleSubcategoryClick = (subcategory: string) => {
+    setActiveSubcategory(subcategory);
+    setCurrentPage(1);
+    filterProducts(activeCategory, subcategory);
+  };
+
+  const filterProducts = (category: string, subcategory: string) => {
+    let products = allProducts;
+    if (category !== "All") {
+      products = products.filter((p) => p.category === category);
+    }
+    if (subcategory !== "All") {
+      products = products.filter((p) => p.subcategory === subcategory);
+    }
+    setFiltered(products);
+  };
+
+  // Pagination
+  const totalPages = Math.ceil(filtered.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+  return (
+    <div className="py-8">
+      <h1 className="text-5xl md:text-7xl text-center py-14">Our Products</h1>
+
+      <div className="flex justify-center flex-wrap gap-4 mb-4">
+        {["All", ...uniqueCategories].map((category) => (
           <button
             key={category}
             onClick={() => handleCategoryClick(category)}
-            className={`px-4 py-2 rounded ${
+            className={`px-4 py-2 rounded font-semibold cursor-pointer ${
               activeCategory === category
-                ? "bg-gray-900 text-white"
-                : "bg-gray-200 text-gray-700"
-            } cursor-pointer`}
+                ? "bg-black text-white"
+                : "bg-gray-100 text-gray-800"
+            }`}
           >
             {category}
           </button>
         ))}
       </div>
 
-      {activeCategory !== "All" && (
-        <div className="flex justify-center flex-wrap gap-6 mb-6">
-          {(
-            productData[activeCategory as ProductCategory] as CategoryData
-          ).data.map((item) => (
+      {activeCategory !== "All" && subcategories.length > 0 && (
+        <div className="flex justify-center flex-wrap gap-4 mb-6">
+          {subcategories.map((subcategory) => (
             <button
-              key={item.subtitle}
-              onClick={() => {
-                setActiveSubCategory(item.subtitle);
-                setCurrentPage(1);
-              }}
-              className={`px-4 py-2 rounded ${
-                activeSubCategory === item.subtitle
-                  ? "bg-gray-900 text-white"
-                  : "bg-gray-200 text-gray-700"
-              } cursor-pointer`}
+              key={subcategory}
+              onClick={() => handleSubcategoryClick(subcategory)}
+              className={`px-4 py-2 rounded font-semibold cursor-pointer ${
+                activeSubcategory === subcategory
+                  ? "bg-black text-white"
+                  : "bg-gray-200 text-gray-80"
+              }`}
             >
-              {item.subtitle}
+              {subcategory}
             </button>
           ))}
         </div>
       )}
 
-      <Cards products={cardsForUI} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-4">
+        {currentItems.map((product) => (
+          <div
+            key={product.id}
+            className="rounded shadow-xl p-4 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110"
+          >
+            <Image
+              src={product.imageURL}
+              alt={product.title}
+              width={500}
+              height={200}
+              className="w-full h-[350px]"
+              priority
+            />
+            <h2 className="text-xl font-semibold mt-2">{product.title}</h2>
+            <p className="text-gray-600">{product.description}</p>
+            <div className="flex items-center justify-between mt-2">
+              <p className="text-lg font-bold">Rs. {product.price}</p>
+              <StarRating ratings={product.ratings} productId={product.id} />
+            </div>
+          </div>
+        ))}
+      </div>
 
-      {/* Pagination Controls */}
-      <div className="flex justify-center gap-2 sm:gap-4 mt-6">
-        {Array.from({ length: totalPages }, (_, index) => index + 1).map(
-          (page) => (
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex justify-center gap-2 mt-8">
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
             <button
               key={page}
-              onClick={() => handlePageChange(page)}
-              className={`px-4 py-2 rounded ${
+              onClick={() => setCurrentPage(page)}
+              className={`px-3 py-1 rounded ${
                 currentPage === page
                   ? "bg-gray-900 text-white"
                   : "bg-gray-200 text-gray-700"
-              } cursor-pointer`}
+              }`}
             >
               {page}
             </button>
-          )
-        )}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -45,8 +45,10 @@ export default function HeroUser() {
                 <Image
                   src={img.src}
                   alt={`Banner ${index + 1}`}
-                  layout="fill"
-                  objectFit="container md:cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+
+                  priority
                 />
               </motion.div>
             ))}
@@ -65,8 +67,10 @@ export default function HeroUser() {
                 <Image
                   src={img.src}
                   alt={`Slide ${index + 1}`}
-                  layout="fill"
-                  objectFit="container md:cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
+
+                  priority
                 />
               </div>
             </SwiperSlide>
