@@ -18,6 +18,23 @@ interface Product {
   ratings?: number[];
 }
 
+// ✅ ADD THIS: Category display mapping
+const categoryDisplayMap: Record<string, string> = {
+  Electronics: "Electronics",
+  Dress: "Dress",
+  Watch: "Watch",
+  Shoes: "Shoes",
+  Bags: "Bags",
+  Jewellery: "Jewellery",
+  Ice_Cream: "Ice Cream", // This will show as "Ice Cream"
+  Food: "Food",
+};
+
+// Helper function to get display name
+const getCategoryDisplayName = (category: string): string => {
+  return categoryDisplayMap[category] || category;
+};
+
 function StarRating({
   ratings = [],
   productId,
@@ -142,6 +159,7 @@ export default function ProductsHome() {
     <div className="py-8">
       <h1 className="text-5xl md:text-7xl text-center py-14">Our Products</h1>
 
+      {/* ✅ FIXED: Category buttons with display names */}
       <div className="flex justify-center flex-wrap gap-4 mb-4">
         {["All", ...uniqueCategories].map((category) => (
           <button
@@ -153,7 +171,7 @@ export default function ProductsHome() {
                 : "bg-gray-100 text-gray-800"
             }`}
           >
-            {category}
+            {category === "All" ? "All" : getCategoryDisplayName(category)}
           </button>
         ))}
       </div>
