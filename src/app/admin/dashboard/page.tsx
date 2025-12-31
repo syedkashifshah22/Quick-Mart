@@ -3,7 +3,7 @@ import HeroAdmin from './hero';
 export default function AdminDashboard() {
   return (
     <div className="flex">
-      <main className="ml-64 p-6 w-full">
+      <main className="p-6 w-full">
         <HeroAdmin />
       </main>
     </div>

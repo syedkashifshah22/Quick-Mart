@@ -7,12 +7,7 @@ import {
 } from "firebase/auth";
 
 import { auth, db } from "./firebase";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-
-/* ===============================
-   ADMIN EMAIL
-================================ */
-const ADMIN_EMAIL = "syedkashifshah3@gmail.com";
+import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
 
 /* ===============================
    IMAGE UPLOAD (ImgBB)
@@ -68,13 +63,11 @@ export async function registerUser(
       photoURL: imageURL,
     });
 
-    // role email se decide hoga
-    const role = email === ADMIN_EMAIL ? "admin" : "user";
-
+    // ✅ Default role is always "user", admin role should be manually set in Firestore
     await setDoc(doc(db, "users", user.uid), {
       fullName,
       email,
-      role,
+      role: "user",
       imageURL,
       createdAt: serverTimestamp(),
     });
@@ -99,22 +92,11 @@ export async function loginUser(
   try {
     await signOut(auth); // force logout
 
-    const userCredential = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-
-    const user = userCredential.user;
-    const role = user.email === ADMIN_EMAIL ? "admin" : "user";
-
-    console.log("✅ Logged in as:", role);
+    await signInWithEmailAndPassword(auth, email, password);
 
     return "Login successful";
   } catch (error: unknown) {
-    if (error instanceof Error) {
-      return error.message;
-    }
+    if (error instanceof Error) return error.message;
     return "Login failed";
   }
 }
@@ -139,7 +121,7 @@ export function getCurrentUser() {
 }
 
 /* ===============================
-   GET AUTH USER WITH ROLE
+   GET AUTH USER WITH ROLE (Firestore)
 ================================ */
 export async function getAuthUser(user: User): Promise<null | {
   email: string;
@@ -150,7 +132,11 @@ export async function getAuthUser(user: User): Promise<null | {
 }> {
   if (!user) return null;
 
-  const role: "admin" | "user" = user.email === ADMIN_EMAIL ? "admin" : "user";
+  const userRef = doc(db, "users", user.uid);
+  const snap = await getDoc(userRef);
+
+  const role: "admin" | "user" =
+    snap.exists() && snap.data().role === "admin" ? "admin" : "user";
 
   return {
     uid: user.uid,

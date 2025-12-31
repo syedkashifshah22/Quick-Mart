@@ -1,33 +1,68 @@
-import { collection, getDocs, query, Timestamp, where } from "firebase/firestore";
+import { collection, getDocs, query, orderBy, limit, Timestamp } from "firebase/firestore";
 import { db } from "./firebase";
 
-export async function getTotalUsers() {
+// ✅ Strongly typed User
+export type User = {
+  id: string;
+  fullName: string;
+  email: string;
+  photoURL?: string;        // optional avatar URL
+  imageURL?: string; 
+  createdAt?: Timestamp | Date; // Firebase Timestamp or Date
+};
+
+// ✅ Total users
+export async function getTotalUsers(): Promise<number> {
   const usersRef = collection(db, "users");
   const snapshot = await getDocs(usersRef);
   return snapshot.size;
 }
 
-export async function getDailyUsers() {
+// ✅ New users today
+export async function getDailyUsers(): Promise<number> {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const timestamp = Timestamp.fromDate(today);
 
-  const q = query(collection(db, "users"), where("createdAt", ">=", timestamp));
-  const snapshot = await getDocs(q);
-  return snapshot.size;
-}
-export async function getUsersForChart() {
   const snapshot = await getDocs(collection(db, "users"));
-  const users = snapshot.docs.map((doc) => doc.data());
+  let count = 0;
 
-  const dateCounts: { [date: string]: number } = {};
+  snapshot.docs.forEach((doc) => {
+    const data = doc.data() as Omit<User, "id">;
 
-  users.forEach((user) => {
-    if (user.createdAt?.toDate) {
-      const dateStr = user.createdAt.toDate().toISOString().split("T")[0];
-      dateCounts[dateStr] = (dateCounts[dateStr] || 0) + 1;
+    const createdAtDate: Date =
+      data.createdAt instanceof Timestamp ? data.createdAt.toDate() : data.createdAt || new Date(0);
+
+    // ✅ Check only today's users
+    if (createdAtDate.toDateString() === new Date().toDateString()) {
+      count++;
     }
   });
 
-  return Object.entries(dateCounts).map(([date, count]) => ({ date, count }));
+  return count;
+}
+
+// ✅ Latest N users (default 5)
+export async function getLatestUsers(limitCount = 5): Promise<User[]> {
+  const usersRef = collection(db, "users");
+
+  // Firestore query: order by createdAt descending + limit
+  const q = query(usersRef, orderBy("createdAt", "desc"), limit(limitCount));
+  const snapshot = await getDocs(q);
+
+  const users: User[] = snapshot.docs.map((doc) => {
+    const data = doc.data() as Omit<User, "id">;
+
+    const createdAtDate: Date =
+      data.createdAt instanceof Timestamp ? data.createdAt.toDate() : data.createdAt || new Date(0);
+
+    return {
+      id: doc.id,
+      fullName: data.fullName || "No Name",
+      email: data.email || "No Email",
+      photoURL: data.photoURL || data.imageURL || "/assets/userIcon.jpg",
+      createdAt: createdAtDate,
+    };
+  });
+
+  return users;
 }
