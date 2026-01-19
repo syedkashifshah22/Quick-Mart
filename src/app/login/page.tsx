@@ -7,47 +7,47 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/app/lib/firebase";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 
-
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
- const handleLogin = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setLoading(true);
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
 
-  const result = await loginUser(email, password);
-  console.log("Login result:", result);
+    const result = await loginUser(email, password);
+    console.log("Login result:", result);
 
-  if (result === "Login successful") {
-    await signOut(auth); // force logout
-const userCredential = await signInWithEmailAndPassword(auth, email, password);
-const token = await userCredential.user.getIdTokenResult(true); // force refresh
-console.log("✅ Role after re-login:", token.claims.role);
+    if (result === "Login successful") {
+      await signOut(auth); // force logout
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const token = await userCredential.user.getIdTokenResult(true); // force refresh
+      console.log("✅ Role after re-login:", token.claims.role);
 
+      onAuthStateChanged(auth, async (firebaseUser) => {
+        if (firebaseUser) {
+          const user = await getAuthUser(firebaseUser);
+          console.log("🔥 Auth user:", user);
 
-    onAuthStateChanged(auth, async (firebaseUser) => {
-      if (firebaseUser) {
-        const user = await getAuthUser(firebaseUser);
-        console.log("🔥 Auth user:", user);
-
-        if (user) {
-          router.push(user.role === "admin" ? "/admin/dashboard" : "/");
-        } else {
-          alert("User role not found. Please contact support.");
+          if (user) {
+            router.push(user.role === "admin" ? "/admin/dashboard" : "/");
+          } else {
+            alert("User role not found. Please contact support.");
+          }
         }
-      }
-    });
-  } else {
-    alert(result);
-  }
+      });
+    } else {
+      alert(result);
+    }
 
-  setLoading(false);
-};
-
-
+    setLoading(false);
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-200 to-gray-900">

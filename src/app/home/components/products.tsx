@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { getAllProducts } from "@/app/lib/products";
-import { doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "@/app/lib/firebase";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { auth } from "@/app/lib/firebase"; // current user auth
 
 interface Product {
   id: string;
@@ -18,7 +20,7 @@ interface Product {
   ratings?: number[];
 }
 
-// ✅ ADD THIS: Category display mapping
+// Category mapping
 const categoryDisplayMap: Record<string, string> = {
   Electronics: "Electronics",
   Dress: "Dress",
@@ -26,41 +28,30 @@ const categoryDisplayMap: Record<string, string> = {
   Shoes: "Shoes",
   Bags: "Bags",
   Jewellery: "Jewellery",
-  Ice_Cream: "Ice Cream", // This will show as "Ice Cream"
+  Ice_Cream: "Ice Cream",
   Food: "Food",
 };
 
-// Helper function to get display name
-const getCategoryDisplayName = (category: string): string => {
-  return categoryDisplayMap[category] || category;
-};
+const getCategoryDisplayName = (category: string) =>
+  categoryDisplayMap[category] || category;
 
-function StarRating({
-  ratings = [],
-  productId,
-}: {
-  ratings?: number[];
-  productId: string;
-}) {
+function StarRating({ productId }: { productId: string }) {
   const [hovered, setHovered] = useState<number | null>(null);
   const [selected, setSelected] = useState<number | null>(null);
   const [showPercent, setShowPercent] = useState(false);
 
-  const average =
-    ratings.length > 0
-      ? ratings.reduce((a, b) => a + b, 0) / ratings.length
-      : 0;
-
-  const finalValue = selected ?? average;
-  const percentage = Math.round((finalValue / 5) * 100);
-
   const handleClick = async (rating: number) => {
     setSelected(rating);
     setShowPercent(true);
+
+    if (!auth.currentUser) return alert("Please login first!");
+
     try {
-      const productRef = doc(db, "products", productId);
-      await updateDoc(productRef, {
-        ratings: arrayUnion(rating),
+      await addDoc(collection(db, "ratings"), {
+        productId,
+        rating,
+        userId: auth.currentUser.uid,
+        createdAt: serverTimestamp(),
       });
     } catch (error) {
       console.error("Failed to submit rating:", error);
@@ -76,14 +67,14 @@ function StarRating({
           onMouseEnter={() => setHovered(i)}
           onMouseLeave={() => setHovered(null)}
           className={`cursor-pointer transition ${
-            (hovered ?? selected ?? average) >= i
+            (hovered ?? selected ?? 0) >= i
               ? "text-yellow-400"
               : "text-gray-300"
           }`}
         />
       ))}
       {showPercent && (
-        <span className="text-sm text-gray-600 ml-1">({percentage}%)</span>
+        <span className="text-sm text-gray-600 ml-1">({selected}⭐)</span>
       )}
     </div>
   );
@@ -96,6 +87,7 @@ export default function ProductsHome() {
   const [activeSubcategory, setActiveSubcategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -108,9 +100,7 @@ export default function ProductsHome() {
 
   const uniqueCategories = Array.from(
     new Set(
-      allProducts
-        .map((p) => p.category)
-        .filter((cat): cat is string => typeof cat === "string")
+      allProducts.map((p) => p.category).filter((cat): cat is string => !!cat)
     )
   );
 
@@ -121,10 +111,19 @@ export default function ProductsHome() {
             allProducts
               .filter((p) => p.category === activeCategory)
               .map((p) => p.subcategory)
-              .filter((sub): sub is string => typeof sub === "string")
+              .filter((sub): sub is string => !!sub)
           )
         )
       : [];
+
+  const filterProducts = (category: string, subcategory: string) => {
+    let products = allProducts;
+    if (category !== "All")
+      products = products.filter((p) => p.category === category);
+    if (subcategory !== "All")
+      products = products.filter((p) => p.subcategory === subcategory);
+    setFiltered(products);
+  };
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(category);
@@ -139,18 +138,21 @@ export default function ProductsHome() {
     filterProducts(activeCategory, subcategory);
   };
 
-  const filterProducts = (category: string, subcategory: string) => {
-    let products = allProducts;
-    if (category !== "All") {
-      products = products.filter((p) => p.category === category);
-    }
-    if (subcategory !== "All") {
-      products = products.filter((p) => p.subcategory === subcategory);
-    }
-    setFiltered(products);
+  const handleAddToCart = async (product: Product) => {
+    if (!auth.currentUser) return alert("Login first to add to cart!");
+
+    await addDoc(collection(db, "cart", auth.currentUser.uid, "items"), {
+      productId: product.id,
+      title: product.title,
+      price: product.price,
+      quantity: 1,
+      image: product.imageURL,
+      size: product.subcategory || null,
+    });
+
+    router.push(`/cart?productId=${product.id}`);
   };
 
-  // Pagination
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = filtered.slice(startIndex, startIndex + itemsPerPage);
@@ -159,7 +161,7 @@ export default function ProductsHome() {
     <div className="py-8">
       <h1 className="text-5xl md:text-7xl text-center py-14">Our Products</h1>
 
-      {/* ✅ FIXED: Category buttons with display names */}
+      {/* Categories */}
       <div className="flex justify-center flex-wrap gap-4 mb-4">
         {["All", ...uniqueCategories].map((category) => (
           <button
@@ -176,6 +178,7 @@ export default function ProductsHome() {
         ))}
       </div>
 
+      {/* Subcategories */}
       {activeCategory !== "All" && subcategories.length > 0 && (
         <div className="flex justify-center flex-wrap gap-4 mb-6">
           {subcategories.map((subcategory) => (
@@ -185,7 +188,7 @@ export default function ProductsHome() {
               className={`px-4 py-2 rounded font-semibold cursor-pointer ${
                 activeSubcategory === subcategory
                   ? "bg-black text-white"
-                  : "bg-gray-200 text-gray-80"
+                  : "bg-gray-200 text-gray-800"
               }`}
             >
               {subcategory}
@@ -194,10 +197,12 @@ export default function ProductsHome() {
         </div>
       )}
 
+      {/* Products grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-4">
         {currentItems.map((product) => (
           <div
             key={product.id}
+            onClick={() => handleAddToCart(product)}
             className="rounded shadow-xl p-4 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110"
           >
             <Image
@@ -212,7 +217,7 @@ export default function ProductsHome() {
             <p className="text-gray-600">{product.description}</p>
             <div className="flex items-center justify-between mt-2">
               <p className="text-lg font-bold">Rs. {product.price}</p>
-              <StarRating ratings={product.ratings} productId={product.id} />
+              <StarRating productId={product.id} />
             </div>
           </div>
         ))}
