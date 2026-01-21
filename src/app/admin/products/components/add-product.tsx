@@ -54,7 +54,8 @@ export default function AddProductForm({ onProductAdded }: Props) {
     subcategory: "",
   });
 
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  // ✅ MULTIPLE IMAGES STATE
+  const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [uploading, setUploading] = useState(false);
 
   const handleChange = (
@@ -78,28 +79,37 @@ export default function AddProductForm({ onProductAdded }: Props) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!imageFile) {
-      toast.error("Please select an image file.");
+    if (imageFiles.length === 0) {
+      toast.error("Please select at least one image.");
       return;
     }
 
     try {
       setUploading(true);
-      const imageUrl = await uploadImageToImgBB(imageFile);
+
+      // ✅ Upload all images
+      const imageUrls: string[] = [];
+
+      for (const file of imageFiles) {
+        const url = await uploadImageToImgBB(file);
+        if (url) imageUrls.push(url);
+      }
+
       setUploading(false);
 
-      if (!imageUrl) {
+      if (imageUrls.length === 0) {
         toast.error("Image upload failed.");
         return;
       }
 
+      // ✅ Save product with images array
       await addDoc(collection(db, "products"), {
         title: form.title,
         description: form.description,
         price: parseInt(form.price.replace(/[^0-9]/g, "")),
         category: form.category,
         subcategory: form.subcategory,
-        imageUrl,
+        images: imageUrls, // 👈 IMPORTANT
         createdAt: serverTimestamp(),
         ratings: [],
       });
@@ -113,7 +123,7 @@ export default function AddProductForm({ onProductAdded }: Props) {
         category: "",
         subcategory: "",
       });
-      setImageFile(null);
+      setImageFiles([]);
       onProductAdded();
     } catch (error: unknown) {
       setUploading(false);
@@ -163,7 +173,7 @@ export default function AddProductForm({ onProductAdded }: Props) {
         className="w-full border p-2 rounded"
       />
 
-      {/* Category Dropdown */}
+      {/* Category */}
       <select
         name="category"
         value={form.category}
@@ -181,7 +191,7 @@ export default function AddProductForm({ onProductAdded }: Props) {
         ))}
       </select>
 
-      {/* Subcategory Dropdown */}
+      {/* Subcategory */}
       {form.category && (
         <select
           name="subcategory"
@@ -201,10 +211,14 @@ export default function AddProductForm({ onProductAdded }: Props) {
         </select>
       )}
 
+      {/* ✅ MULTIPLE IMAGE INPUT */}
       <input
         type="file"
         accept="image/*"
-        onChange={(e) => setImageFile(e.target.files?.[0] || null)}
+        multiple
+        onChange={(e) =>
+          setImageFiles(e.target.files ? Array.from(e.target.files) : [])
+        }
         className="w-full"
         required
       />

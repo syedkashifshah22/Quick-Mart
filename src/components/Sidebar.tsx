@@ -9,6 +9,8 @@ import {
   ShoppingCart,
   Settings,
   LogOut,
+  Menu,
+  X,
 } from "lucide-react";
 import adminSidebarItems from "@/utils/adminSidebarItem.json";
 import { auth } from "@/app/lib/firebase";
@@ -29,7 +31,8 @@ const Sidebar = () => {
   const router = useRouter();
   const [fullName, setFullName] = useState<string | null>(null);
   const [imageURL, setImageURL] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true); // new loading state
+  const [loading, setLoading] = useState(true);
+  const [open, setOpen] = useState(false); // 🔥 mobile toggle
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
@@ -39,7 +42,6 @@ const Sidebar = () => {
       }
 
       const user = await getAuthUser(firebaseUser);
-
       if (!user || user.role !== "admin") {
         router.push("/login");
         return;
@@ -54,58 +56,88 @@ const Sidebar = () => {
   }, [router]);
 
   const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      router.push("/login");
-    } catch (error) {
-      console.error("Logout failed", error);
-    }
+    await signOut(auth);
+    router.push("/login");
   };
 
-  if (loading) return null; // ya loader component
+  if (loading) return null;
 
   return (
-    <aside className="fixed top-0 left-0 w-64 h-screen bg-gray-900 text-white p-6 flex flex-col justify-between shadow-lg z-50">
-      <div>
-        <div className="mb-8 flex items-center space-x-4">
-          <Image
-            src={imageURL || "/assets/userIcon.jpg"}
-            alt="Admin Profile"
-            width={40}
-            height={40}
-            className="rounded-full object-cover"
-          />
-          <div>
-            <h2 className="text-base font-bold">{fullName}</h2>
-          </div>
-        </div>
-        <nav>
-          <ul className="space-y-2">
-            {adminSidebarItems.map((item) => (
-              <li key={item.title}>
-                <Link
-                  href={item.url}
-                  className="flex items-center px-4 py-2 rounded-md hover:bg-gray-800 transition"
-                >
-                  {iconMap[item.icon as keyof typeof iconMap]}
-                  <span>{item.title}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+    <>
+      {/* 🔹 MOBILE TOP BAR */}
+      <div className="md:hidden fixed top-0 left-0 right-0 h-14 bg-gray-900 text-white flex items-center justify-between px-4 z-50">
+        <button onClick={() => setOpen(true)}>
+          <Menu className="w-6 h-6" />
+        </button>
       </div>
 
-      <div className="border-t border-gray-700 pt-4">
+      {/* 🔹 OVERLAY */}
+      {open && (
+        <div
+          onClick={() => setOpen(false)}
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+        />
+      )}
+
+      {/* 🔹 SIDEBAR */}
+      <aside
+        className={`
+          fixed top-0 left-0 h-screen w-64 bg-gray-900 text-white p-6 flex flex-col justify-between shadow-lg z-50
+          transform transition-transform duration-300
+          ${open ? "translate-x-0" : "-translate-x-full"}
+          md:translate-x-0
+        `}
+      >
+        {/* Close button (mobile) */}
+        <button
+          onClick={() => setOpen(false)}
+          className="absolute top-4 right-4 md:hidden"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        <div>
+          {/* Profile */}
+          <div className="mb-8 flex items-center space-x-4">
+            <Image
+              src={imageURL || "/assets/userIcon.jpg"}
+              alt="Admin"
+              width={40}
+              height={40}
+              className="rounded-full object-cover"
+            />
+            <h2 className="text-sm font-bold">{fullName}</h2>
+          </div>
+
+          {/* Menu */}
+          <nav>
+            <ul className="space-y-2">
+              {adminSidebarItems.map((item) => (
+                <li key={item.title}>
+                  <Link
+                    href={item.url}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center px-4 py-2 rounded-md hover:bg-gray-800 transition"
+                  >
+                    {iconMap[item.icon as keyof typeof iconMap]}
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        {/* Logout */}
         <button
           onClick={handleLogout}
-          className="w-full flex items-center px-4 py-2 text-left hover:bg-gray-800 transition rounded-md cursor-pointer"
+          className="flex items-center px-4 py-2 hover:bg-gray-800 rounded-md"
         >
           <LogOut className="w-5 h-5 mr-3" />
           Log Out
         </button>
-      </div>
-    </aside>
+      </aside>
+    </>
   );
 };
 

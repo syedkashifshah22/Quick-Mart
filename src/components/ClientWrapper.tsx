@@ -25,9 +25,9 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         setUser({ fullName: authUser.fullName, email: authUser.email });
 
         // ✅ Agar admin hai to push to dashboard
-        if (authUser.role === "admin") {
-          router.push("/admin/dashboard");
-        }
+        // if (authUser.role === "admin") {
+        //   router.push("/admin/dashboard");
+        // }
       }
     } else {
       setRole(null);

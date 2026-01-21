@@ -119,7 +119,7 @@ export default function CartPage() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => handleQuantityChange(quantity - 1)}
-                className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer"
               >
                 -
               </button>
@@ -128,11 +128,11 @@ export default function CartPage() {
                 min={1}
                 value={quantity}
                 onChange={(e) => handleQuantityChange(Number(e.target.value))}
-                className="w-14 text-center border rounded"
+                className="w-14 text-center border rounded cursor-pointer"
               />
               <button
                 onClick={() => handleQuantityChange(quantity + 1)}
-                className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 cursor-pointer"
               >
                 +
               </button>
@@ -145,13 +145,13 @@ export default function CartPage() {
           <div className="flex gap-4 mt-6">
             <button
               onClick={handleAddToCart}
-              className="flex-1 bg-black hover:bg-gray-900 text-white py-3 rounded"
+              className="flex-1 bg-black hover:bg-gray-900 text-white py-3 rounded cursor-pointer"
             >
               Add to Cart
             </button>
             <button
               onClick={handleBuyNow}
-              className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded"
+              className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded cursor-pointer"
             >
               Buy Now
             </button>

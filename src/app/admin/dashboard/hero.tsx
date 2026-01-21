@@ -1,5 +1,4 @@
 export default function HeroAdmin() {
-  // Sample data (aap isko apne real data se replace kar lena)
   const stats = [
     { title: "Total Users", value: "1,245", icon: "👤", change: "+12%" },
     { title: "Total Products", value: "560", icon: "📦", change: "+5%" },
@@ -25,20 +24,12 @@ export default function HeroAdmin() {
   ];
 
   return (
-    <div className="p-6 ">
+    <div className="md:p-6 ">
       {/* Header */}
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-wrap justify-between items-center mb-8 space-y-4 md:space-y-0">
         <h1 className="text-3xl font-bold text-gray-800">Dashboard Overview</h1>
-        <div className="flex items-center space-x-4">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
-            <span className="absolute left-3 top-2.5">🔍</span>
-          </div>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+        <div className="flex items-center">
+          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer">
             Generate Report
           </button>
         </div>

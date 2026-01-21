@@ -8,6 +8,7 @@ import {
 } from "@/app/lib/products";
 import AddProductForm from "./components/add-product";
 import Image from "next/image";
+import { FiImage } from "react-icons/fi";
 
 type Product = {
   id: string;
@@ -44,6 +45,7 @@ export default function ProductsPage() {
 
   const handleUpdate = async () => {
     if (!editingProduct) return;
+
     const { id, title, description, price } = editingProduct;
 
     await updateProduct(id, {
@@ -59,7 +61,8 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6 relative">
+      {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">All Products</h1>
         <button
@@ -67,13 +70,13 @@ export default function ProductsPage() {
             setShowForm(!showForm);
             setEditingProduct(null);
           }}
-          className="inline-flex items-center justify-center px-6 py-2 overflow-hidden font-semibold text-black transition duration-300 ease-out rounded-xl shadow-md  bg-gray-200 hover:bg-gray-300 cursor-pointer"
+          className="px-6 py-2 font-semibold rounded-xl shadow-md bg-gray-200 hover:bg-gray-300"
         >
-          {showForm ? "Hide Form" : " Add Product"}
+          {showForm ? "Hide Form" : "Add Product"}
         </button>
       </div>
 
-      {/* Show Add Form */}
+      {/* Add Product Form */}
       {showForm && !editingProduct && (
         <AddProductForm
           onProductAdded={() => {
@@ -83,83 +86,117 @@ export default function ProductsPage() {
         />
       )}
 
-      {/* Show Edit Form */}
+      {/* ================= EDIT MODAL ================= */}
       {editingProduct && (
-        <div className="border p-4 mb-6 rounded bg-gray-100">
-          <h2 className="text-xl font-semibold mb-2">Edit Product</h2>
-          <input
-            className="border px-2 py-1 w-full mb-2"
-            value={editingProduct.title}
-            onChange={(e) =>
-              setEditingProduct({ ...editingProduct, title: e.target.value })
-            }
-            placeholder="Title"
-          />
-          <input
-            className="border px-2 py-1 w-full mb-2"
-            value={editingProduct.description}
-            onChange={(e) =>
-              setEditingProduct({
-                ...editingProduct,
-                description: e.target.value,
-              })
-            }
-            placeholder="Description"
-          />
-          <input
-            type="number"
-            className="border px-2 py-1 w-full mb-2"
-            value={editingProduct.price}
-            onChange={(e) =>
-              setEditingProduct({
-                ...editingProduct,
-                price: Number(e.target.value),
-              })
-            }
-            placeholder="Price"
-          />
-          <input
-            type="file"
-            accept="image/*"
-            className="w-full mb-2"
-            onChange={(e) => setImageFile(e.target.files?.[0] || null)}
-          />
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-white w-full max-w-md rounded-xl shadow-xl p-6 relative">
+            <h2 className="text-2xl font-bold mb-4">Edit Product</h2>
 
-          <div className="flex gap-2">
-            <button
-              onClick={handleUpdate}
-              className="bg-gray-200 hover:bg-gray-300 font-semibold text-gray-800 cursor-pointer px-4 py-2 rounded"
-            >
-              Update
-            </button>
-            <button
-              onClick={() => {
-                setEditingProduct(null);
-                setImageFile(null);
-              }}
-              className="bg-gray-200 hover:bg-gray-300 font-semibold text-gray-800 cursor-pointer px-4 py-2 rounded"
-            >
-              Cancel
-            </button>
+            {/* Title */}
+            <div className="mb-3">
+              <label className="block text-sm mb-1">Product Title</label>
+              <input
+                className="border px-3 py-2 w-full rounded"
+                value={editingProduct.title}
+                onChange={(e) =>
+                  setEditingProduct({
+                    ...editingProduct,
+                    title: e.target.value,
+                  })
+                }
+              />
+            </div>
+
+            {/* Description */}
+            <div className="mb-3">
+              <label className="block text-sm mb-1">Description</label>
+              <textarea
+                className="border px-3 py-2 w-full rounded"
+                rows={3}
+                value={editingProduct.description}
+                onChange={(e) =>
+                  setEditingProduct({
+                    ...editingProduct,
+                    description: e.target.value,
+                  })
+                }
+              />
+            </div>
+
+            {/* Price */}
+            <div className="mb-3">
+              <label className="block text-sm mb-1">Price</label>
+              <input
+                type="number"
+                className="border px-3 py-2 w-full rounded"
+                value={editingProduct.price}
+                onChange={(e) =>
+                  setEditingProduct({
+                    ...editingProduct,
+                    price: Number(e.target.value),
+                  })
+                }
+              />
+            </div>
+
+            {/* Image */}
+            <div className="mb-4">
+              <label className="block text-sm mb-1">Update Image</label>
+
+              <label className="flex items-center gap-2 cursor-pointer border rounded px-4 py-2 hover:bg-gray-100">
+                <FiImage className="text-gray-600 text-lg" />
+
+                <span className="text-sm text-gray-600">Choose image</span>
+
+                <input
+                  type="file"
+                  accept="image/*"
+                  hidden
+                  onChange={(e) => setImageFile(e.target.files?.[0] || null)}
+                />
+              </label>
+            </div>
+
+            {/* Buttons */}
+            <div className="flex justify-end gap-2">
+              <button
+                onClick={() => {
+                  setEditingProduct(null);
+                  setImageFile(null);
+                }}
+                className="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 font-semibold cursor-pointer"
+              >
+                Cancel
+              </button>
+
+              <button
+                onClick={handleUpdate}
+                className="px-4 py-2 rounded bg-black text-white font-semibold hover:bg-gray-800 cursor-pointer"
+              >
+                Update
+              </button>
+            </div>
           </div>
         </div>
       )}
 
+      {/* ================= END MODAL ================= */}
+
       {/* Product Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-6">
         {products.map((product) => (
           <div
             key={product.id}
-            className="rounded shadow-xl p-4 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110"
+            className="rounded shadow-xl p-4 transition-transform hover:scale-105 cursor-pointer"
           >
             <Image
               src={product.imageURL}
               alt={product.title}
               width={500}
-              height={200}
-              className="w-full h-[350px]"
-              priority
+              height={350}
+              className="w-full h-[350px] object-cover rounded"
             />
+
             <h2 className="text-xl font-semibold mt-2">{product.title}</h2>
             <p className="text-sm text-gray-600">{product.description}</p>
             <p className="font-bold text-lg mt-1">${product.price}</p>
@@ -167,13 +204,13 @@ export default function ProductsPage() {
             <div className="flex justify-between mt-4">
               <button
                 onClick={() => setEditingProduct(product)}
-                className="bg-gray-200 hover:bg-gray-300 cursor-pointer text-gray-800 font-semibold px-3 py-1 rounded"
+                className="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded font-semibold cursor-pointer"
               >
                 Edit
               </button>
               <button
                 onClick={() => handleDelete(product.id)}
-                className="bg-gray-200 hover:bg-gray-300 cursor-pointer text-gray-800 font-semibold px-3 py-1 rounded"
+                className="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded font-semibold cursor-pointer"
               >
                 Delete
               </button>
