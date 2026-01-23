@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { registerUser } from "@/app/lib/auth";
+import { showError, showSuccess } from "@/components/toast";
 
 
 export default function SignUpPage() {
@@ -18,11 +19,11 @@ export default function SignUpPage() {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      showError("Passwords do not match!");
       return;
     }
     if (!image) {
-      alert("Please upload a profile image");
+      showError("Please upload a profile image");
       return;
     }
 
@@ -31,10 +32,10 @@ export default function SignUpPage() {
     setLoading(false);
 
     if (result === "Account created") {
-      alert("Account created successfully!");
+      showSuccess("Account created successfully!");
       router.push("/login");
     } else {
-      alert(result);
+      showError(result);
     }
   };
 

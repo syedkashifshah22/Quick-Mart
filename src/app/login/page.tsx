@@ -1,53 +1,75 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { loginUser, getAuthUser } from "@/app/lib/auth";
-import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/app/lib/firebase";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuthUser } from "@/app/lib/auth";
+import { showSuccess, showError } from "@/components/toast";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [authLoading, setAuthLoading] = useState(true); // 🔥 auth check loading
+  const [user, setUser] = useState<null | { role: "admin" | "user" }>(null);
   const router = useRouter();
+
+  // 🔥 check if user is already logged in
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        const authUser = await getAuthUser(firebaseUser);
+        setUser(authUser);
+      } else {
+        setUser(null);
+      }
+      setAuthLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    const result = await loginUser(email, password);
-    console.log("Login result:", result);
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const firebaseUser = userCredential.user;
 
-    if (result === "Login successful") {
-      await signOut(auth); // force logout
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const token = await userCredential.user.getIdTokenResult(true); // force refresh
-      console.log("✅ Role after re-login:", token.claims.role);
-
-      onAuthStateChanged(auth, async (firebaseUser) => {
-        if (firebaseUser) {
-          const user = await getAuthUser(firebaseUser);
-          console.log("🔥 Auth user:", user);
-
-          if (user) {
-            router.push(user.role === "admin" ? "/admin/dashboard" : "/");
-          } else {
-            alert("User role not found. Please contact support.");
-          }
-        }
-      });
-    } else {
-      alert(result);
+      const authUser = await getAuthUser(firebaseUser);
+      if (authUser) {
+        showSuccess("Login successful! Redirecting...");
+        router.push(authUser.role === "admin" ? "/admin/dashboard" : "/");
+      } else {
+        showError("User role not found. Please contact support.");
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        showError(err.message);
+      } else {
+        showError("Something went wrong!");
+      }
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
+
+  // 🔥 show nothing while auth loading to prevent flash
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-900">Checking authentication...</p>
+      </div>
+    );
+  }
+
+  // 🔥 if user already logged in, redirect automatically
+  if (user) {
+    router.push(user.role === "admin" ? "/admin/dashboard" : "/");
+    return null;
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-200 to-gray-900">
